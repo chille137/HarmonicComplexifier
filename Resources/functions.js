@@ -141,6 +141,19 @@ export function keyFinder(){
         return false
 }
 
+export function romToInt(deg){
+    switch(deg) {
+        case "I": return 0;
+        case "II": return 1;
+        case "III": return 2;
+        case "IV": return 3;
+        case "V": return 4;
+        case "VI": return 5;
+        case "VII": return 6;
+        default: return;
+    }
+}
+
 export function updateValues(){
     let chord1v_new = document.getElementById("chord1").childNodes[0].value;
     let chord2v_new = document.getElementById("chord2").childNodes[0].value;

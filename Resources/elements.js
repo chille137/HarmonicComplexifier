@@ -31,6 +31,25 @@ export function addChords(){
     }
 }
 
+export function showChords(chords){
+    const display = document.getElementById("compDisplay");
+    while (display.firstChild) {
+        display.removeChild(display.lastChild);
+    }
+    for(let i=0;i<chords.length;i++) {
+        const newDiv = document.createElement("div");
+        newDiv.id="chord"+String(i+1);
+        const note = document.createElement("p");
+        note.innerHTML=chords[i].note;
+        const type = document.createElement("p");
+        type.innerHTML=chords[i].type;
+        type.name="type";
+        newDiv.appendChild(note);
+        newDiv.appendChild(type);
+        display.appendChild(newDiv);
+    }
+}
+
 export function showScale(note){
     const newRoot = document.createElement("p");
     newRoot.id="root";

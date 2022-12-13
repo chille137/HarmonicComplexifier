@@ -16,7 +16,7 @@ export const blackKeysLAT ={
 /** notation for grades and chords**/
 export const degrees = ["I","II","III","IV","V","VI","VII"]
 export const triads = ["M", "m","dim"]
-export const quadriads = ["Δ","7","m7","halfdim","dim7"]
+export const quadriads = ["Δ","7","m7","dim7"]
 
 /** allowed sequences **/
 export const sequences = [
@@ -60,10 +60,6 @@ export const chordTypes=[
         semitones:[3,7,10]
     },
     {
-        name: "halfdim",
-        shape: [3, 6, 10]
-    },
-    {
         name:'dim7',
         semitones:[3,6,9]
     }
@@ -74,7 +70,7 @@ export const modes = [{
     name: 'Ionian',
     notes: [0,2,4,5,7,9,11],
     triads: ["M","m","m","M","M","m","dim"],
-    quadriads: ["Δ","min7","min7","Δ","7","min7","dim7"]
+    quadriads: ["Δ","m7","m7","Δ","7","m7","dim7"]
 }
 ];
 
