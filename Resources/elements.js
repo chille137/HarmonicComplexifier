@@ -34,7 +34,10 @@ export function addChords(){
 export function showScale(note){
     const newRoot = document.createElement("p");
     newRoot.id="root";
-    newRoot.innerHTML = "The root is:"+note;
+    if(!note)
+        newRoot.innerHTML = "Couldn't find the root";
+    else
+        newRoot.innerHTML = "The root is:"+note;
     const display = document.getElementById("rootDisplay");
     if (display.children.length!=0){
         const root = document.getElementById("root");
@@ -59,4 +62,16 @@ export function showDegrees(tonic){
         }
         current.appendChild(newDegree);
     }
+}
+
+export function showSequence(seq){
+    const newSeq = document.createElement("p");
+    newSeq.id="seq";
+    newSeq.innerHTML = "The sequence is:"+seq;
+    const display = document.getElementById("seqDisplay");
+    if (display.children.length!=0){
+        const sequence = document.getElementById("seq");
+        display.removeChild(sequence)
+    }
+    display.appendChild(newSeq);
 }

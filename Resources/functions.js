@@ -1,4 +1,4 @@
-import {allNotes, degrees, scaleBuilder} from "./Notes&Chords.js";
+import {allNotes, degrees, scaleBuilder, sequences} from "./Notes&Chords.js";
 
 /** given a scale and a chord, returns if the chord is contained in that scale**/
 export function containsChord(scale,chord){
@@ -14,6 +14,8 @@ export function containsChord(scale,chord){
 }
 /**given the tonic of a scale and a chord, returns the degree of the chord if possible**/
 export function findDegree(tonic,chord){
+    if (!tonic)
+        return "chord not in scale"
     let note = chord.note;
     let type = chord.type;
     let scale = scaleBuilder(tonic);
@@ -24,6 +26,77 @@ export function findDegree(tonic,chord){
             return degrees[Math.floor(i/2)];
     }
     return "chord not in scale";
+}
+
+export function retDegrees(tonic,chords){
+    let deg=[];
+    for (let i = 0; i < chords.length; i++)
+        deg[i]=findDegree(tonic,chords[i]);
+    return deg;
+}
+
+export function seqFinder(degrees){
+    let degs = degrees;
+    let notFound = "chord not in scale"
+    let seq = sequences;
+    let resized=false;
+    if (degs.includes(notFound)) {
+        let j = degs.indexOf(notFound);
+        if(j!=0 && j!=(degs.length-1))
+            return "Sequence not found"
+        degs.splice(j, 1);
+        seq = seq.slice(0,3);
+        resized=true;
+    }
+    //4 chords
+    let seqCounter;
+    if(!resized){
+        for(let i = 0; i<seq.length; i++){
+            seqCounter=0
+            for(let j=0; j<degs.length; j++){
+                if(degs[j]==seq[i][j])
+                    seqCounter+=1;
+            }
+            if (seqCounter==4)
+                return seq[i]
+        }
+    }
+
+    if(!resized)
+        seq = seq.slice(0, 3);
+
+    for(let i=0;i<seq.length;i++)
+        seq[i] = seq[i].slice(1,seq[i].length);
+
+    seqCounter=0;
+    if(!resized)
+        for(let i = 0; i<seq.length; i++){
+            seqCounter=0;
+            for(let j = 0 ; j<(degs.length-1); j++){
+                if(degs[j]==seq[i][j])
+                    seqCounter+=1;
+            }
+            if (seqCounter==3)
+                return sequences[i]
+            seqCounter=0;
+            for(let j = 0 ; j<(degs.length-1); j++){
+                if(degs[j+1]==seq[i][j])
+                    seqCounter+=1;
+            }
+            if (seqCounter==3)
+                return sequences[i]
+        }
+    else
+        for(let i=0; i<seq.length; i++){
+            seqCounter=0;
+            for(let j = 0 ; j<degs.length; j++){
+                if(degs[j]==seq[i][j])
+                    seqCounter+=1;
+            }
+            if (seqCounter==3)
+                return sequences[i]
+        }
+    return "Sequence not found";
 }
 
 /** find the key of the four chord progression **/
@@ -65,19 +138,8 @@ export function keyFinder(){
     if (chords_in > 2)
         return tonic
     else
-        return "Can't define the Root"
+        return false
 }
-
-/*let chord1v = document.getElementById("chord1").childNodes[0];
-let chord2v = document.getElementById("chord2").childNodes[0];
-let chord3v = document.getElementById("chord3").childNodes[0];
-let chord4v = document.getElementById("chord4").childNodes[0];
-let chord1t = document.getElementById("chord1").childNodes[1];
-let chord2t = document.getElementById("chord2").childNodes[1];
-let chord3t = document.getElementById("chord3").childNodes[1];
-let chord4t = document.getElementById("chord4").childNodes[1];*/
-
-//let chords = [{note: chord1v.value, type: chord1t.value}, {note: chord2v.value, type: chord2t.value},{note: chord3v.value,type: chord3t.value},{note: chord4v.value, type: chord4t.value}]
 
 export function updateValues(){
     let chord1v_new = document.getElementById("chord1").childNodes[0].value;

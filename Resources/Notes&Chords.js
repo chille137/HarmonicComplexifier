@@ -18,6 +18,16 @@ export const degrees = ["I","II","III","IV","V","VI","VII"]
 export const triads = ["M", "m","dim"]
 export const quadriads = ["Δ","7","m7","halfdim","dim7"]
 
+/** allowed sequences **/
+export const sequences = [
+                            [degrees[0],degrees[1],degrees[4],degrees[0]],
+                            [degrees[0],degrees[3],degrees[4],degrees[0]],
+                            [degrees[0],degrees[4],degrees[3],degrees[0]],
+                            [degrees[0],degrees[3],degrees[1],degrees[4]],
+                            [degrees[0],degrees[4],degrees[5],degrees[3]]
+                            ]
+
+
 /**  accepted chords notation **/
 const note_notationENG = /^[A-G][#b]?$/;
 const note_notationLAT = /^(DO|RE|MI|FA|SOL|LA|SI|)[#b]?$/
