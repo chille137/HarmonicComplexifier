@@ -36,6 +36,8 @@ export function showChords(chords){
     while (display.firstChild) {
         display.removeChild(display.lastChild);
     }
+    if(!chords)
+        return
     for(let i=0;i<chords.length;i++) {
         const newDiv = document.createElement("div");
         newDiv.id="chord"+String(i+1);
@@ -71,22 +73,28 @@ export function showDegrees(tonic){
         let chordRoot = current.childNodes[0].value;
         let chordType = current.childNodes[1].value;
         let chord = {note: chordRoot,type: chordType};
-        let degree = findDegree(tonic,chord);
         const newDegree = document.createElement("p");
-        newDegree.id = "degree"+String(i+1);
-        newDegree.innerHTML = degree;
+        if(tonic) {
+            let degree = findDegree(tonic, chord);
+            newDegree.id = "degree" + String(i + 1);
+            newDegree.innerHTML = degree;
+        }
         if (current.childNodes.length==3) {
             const prev = current.childNodes[2];
             current.removeChild(prev);
         }
-        current.appendChild(newDegree);
+        if(tonic)
+            current.appendChild(newDegree);
     }
 }
 
 export function showSequence(seq){
     const newSeq = document.createElement("p");
     newSeq.id="seq";
-    newSeq.innerHTML = "The sequence is:"+seq;
+    if(!seq)
+        newSeq.innerHTML="Couldn't find any known sequence"
+    else
+        newSeq.innerHTML = "The sequence is:"+seq;
     const display = document.getElementById("seqDisplay");
     if (display.children.length!=0){
         const sequence = document.getElementById("seq");

@@ -4,18 +4,24 @@ import {degrees, modes, triads} from "./Notes&Chords.js";
 
 export function complexify(){
     let tonic = keyFinder();
-    showScale(tonic)
-    showDegrees(tonic)
-    if (!tonic) {
-        showSequence("Couldn't complexify the sequence")
-        return
+    showScale(tonic);
+    showDegrees(tonic);
+    let seq;
+    let newChords;
+    if(tonic){
+        let degs = retDegrees(tonic,updateValues());
+        seq = seqFinder(degs);
+        if(!seq)
+            newChords=updateValues()
+        else
+            newChords = triadsToQuadriads(tonic,seq);
     }
-    let degs = retDegrees(tonic,updateValues());
-    let seq = seqFinder(degs);
+    else{
+        seq=false;
+        newChords=updateValues();
+    }
     showSequence(seq);
-    let newChords = triadsToQuadriads(tonic,seq);
-    showChords(newChords);
-
+    showChords(newChords)
 }
 
 function triadsToQuadriads(tonic,seq){

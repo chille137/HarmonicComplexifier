@@ -94,9 +94,9 @@ export function seqFinder(degrees){
                     seqCounter+=1;
             }
             if (seqCounter==3)
-                return sequences[i]
+                return sequences[i].slice(1,sequences[i].length);
         }
-    return "Sequence not found";
+    return false;
 }
 
 /** find the key of the four chord progression **/
