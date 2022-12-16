@@ -35,41 +35,60 @@ export function retDegrees(tonic,chords){
     return deg;
 }
 
-export function seqFinder(degrees){
-    let degs = degrees;
+export function seqFinder(degrees_param) {
+    let degs = degrees_param;
     let notFound = "chord not in scale"
-    let seq = sequences;
-    let resized=false;
+    let seq = sequences.map((x)=>x);
+    let resized = false;
     if (degs.includes(notFound)) {
         let j = degs.indexOf(notFound);
-        if(j!=0 && j!=(degs.length-1))
-            return "Sequence not found"
+        if (j != 0 && j != (degs.length - 1))
+            return false
         degs.splice(j, 1);
-        seq = seq.slice(0,3);
-        resized=true;
+        resized = true;
     }
-    //4 chords
-    let seqCounter;
-    if(!resized){
-        for(let i = 0; i<seq.length; i++){
-            seqCounter=0
-            for(let j=0; j<degs.length; j++){
-                if(degs[j]==seq[i][j])
-                    seqCounter+=1;
+    else
+        if(degs[0]!=degrees[0]) {
+            if(degs[degs.length-1]==degs[degs.length-2]) {
+                degs = degs.slice(0, degs.length-1)
+                resized=true;
             }
-            if (seqCounter==4)
+            else
+                {
+                degs = degs.slice(1, degs.length)
+                resized = true
+                }
+        }
+
+    //4 chords
+    let seqCounter = 0;
+    if (!resized) {
+        for (let i = 0; i < seq.length; i++) {
+            seqCounter = 0
+            for (let j = 0; j < degs.length; j++) {
+                if (degs[j] == seq[i][j])
+                    seqCounter += 1;
+            }
+            if (seqCounter == 4)
                 return seq[i]
         }
     }
 
-    if(!resized)
-        seq = seq.slice(0, 3);
+    for (let i = 0; i < seq.length; i++)
+        seq[i] = seq[i].slice(1, seq[i].length);
 
-    for(let i=0;i<seq.length;i++)
-        seq[i] = seq[i].slice(1,seq[i].length);
+    for (let i = 0; i < seq.length; i++) {
+        seqCounter=0
+        for (let j = 0; j < degs.length; j++) {
+            if (degs[j] == seq[i][j])
+                seqCounter += 1;
+        }
+        if (seqCounter == 3)
+            return seq[i]
+    }
+    return false
 
-    seqCounter=0;
-    if(!resized)
+    /*if(!resized)
         for(let i = 0; i<seq.length; i++){
             seqCounter=0;
             for(let j = 0 ; j<(degs.length-1); j++){
@@ -95,8 +114,7 @@ export function seqFinder(degrees){
             }
             if (seqCounter==3)
                 return sequences[i].slice(1,sequences[i].length);
-        }
-    return false;
+        }*/
 }
 
 /** find the key of the four chord progression **/

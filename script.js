@@ -6,7 +6,12 @@ import {complexify} from "./Resources/complexifyFunc.js";
 addChords();
 
 let complex = document.getElementById("complexButton");
-complex.onclick=complexify;
+complex.onclick=applyComplexify;
+
+function applyComplexify(){
+    let lvl = document.getElementById("complexLvl").value;
+    complexify(lvl);
+}
 
 function showTonic(){
     let tonic = keyFinder();

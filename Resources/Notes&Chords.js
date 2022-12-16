@@ -23,7 +23,7 @@ export const sequences = [
                             [degrees[0],degrees[1],degrees[4],degrees[0]],
                             [degrees[0],degrees[3],degrees[4],degrees[0]],
                             [degrees[0],degrees[4],degrees[3],degrees[0]],
-                            [degrees[0],degrees[3],degrees[1],degrees[4]],
+                            [degrees[0],degrees[5],degrees[1],degrees[4]],
                             [degrees[0],degrees[4],degrees[5],degrees[3]]
                             ]
 
@@ -71,8 +71,7 @@ export const modes = [{
     notes: [0,2,4,5,7,9,11],
     triads: ["M","m","m","M","M","m","dim"],
     quadriads: ["Δ","m7","m7","Δ","7","m7","dim7"]
-}
-];
+}];
 
 /** given the root and the type of chord, returns the notes to build the desired chord**/
 export function chordBuilder(note,type) {
