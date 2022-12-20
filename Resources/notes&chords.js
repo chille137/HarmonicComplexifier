@@ -16,13 +16,14 @@ export const blackKeysLAT ={
 /** notation for grades and chords**/
 export const degrees = ["I","II","III","IV","V","VI","VII"]
 export const triads = ["M", "m","dim"]
-export const quadriads = ["Δ","7","m7","dim7"]
+export const quadriads = ["Maj7","7","m7","dim7"]
 
 /** allowed sequences **/
 export const sequences = [
                             [degrees[0],degrees[1],degrees[4],degrees[0]],
                             [degrees[0],degrees[3],degrees[4],degrees[0]],
                             [degrees[0],degrees[4],degrees[3],degrees[0]],
+                            [degrees[0],degrees[5],degrees[4],degrees[0]],
                             [degrees[0],degrees[5],degrees[1],degrees[4]],
                             [degrees[0],degrees[4],degrees[5],degrees[3]]
                             ]
@@ -31,7 +32,7 @@ export const sequences = [
 /**  accepted chords notation **/
 const note_notationENG = /^[A-G][#b]?$/;
 const note_notationLAT = /^(DO|RE|MI|FA|SOL|LA|SI|)[#b]?$/
-const type_notation = /^(m|dim|Δ|min7|7|dim7)?$/;
+const type_notation = /^(m|dim|Maj7|min7|7|dim7)?$/;
 
 /** define the degrees used for possible chord shapes **/
 export const chordTypes=[
@@ -48,7 +49,7 @@ export const chordTypes=[
         semitones: [3,6]
     },
     {
-        name:'Δ',
+        name:'Maj7',
         semitones:[4,7,11]
     },
     {
@@ -70,7 +71,7 @@ export const modes = [{
     name: 'Ionian',
     notes: [0,2,4,5,7,9,11],
     triads: ["M","m","m","M","M","m","dim"],
-    quadriads: ["Δ","m7","m7","Δ","7","m7","dim7"]
+    quadriads: ["Maj7","m7","m7","Maj7","7","m7","dim7"]
 }];
 
 /** given the root and the type of chord, returns the notes to build the desired chord**/

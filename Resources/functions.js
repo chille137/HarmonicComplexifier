@@ -1,4 +1,4 @@
-import {allNotes, degrees, scaleBuilder, sequences} from "./Notes&Chords.js";
+import {allNotes, degrees, scaleBuilder, sequences} from "./notes&chords.js";
 
 /** given a scale and a chord, returns if the chord is contained in that scale**/
 export function containsChord(scale,chord){
@@ -181,5 +181,5 @@ export function updateValues(){
     let chord2t_new = document.getElementById("chord2").childNodes[1].value;
     let chord3t_new = document.getElementById("chord3").childNodes[1].value;
     let chord4t_new = document.getElementById("chord4").childNodes[1].value;
-    return [{note: chord1v_new, type: chord1t_new}, {note: chord2v_new, type: chord2t_new},{note: chord3v_new,type: chord3t_new},{note: chord4v_new, type: chord4t_new}]
+    return [{note: chord1v_new, type: chord1t_new, duration: 4}, {note: chord2v_new, type: chord2t_new, duration: 4},{note: chord3v_new,type: chord3t_new, duration: 4},{note: chord4v_new, type: chord4t_new, duration: 4}]
 }

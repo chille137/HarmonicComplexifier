@@ -1,4 +1,4 @@
-import {allNotes, triads, quadriads} from "./Notes&Chords.js";
+import {allNotes, triads, quadriads} from "./notes&chords.js";
 import {findDegree} from "./functions.js"
 
 let chords = document.getElementById("chords");
@@ -41,13 +41,7 @@ export function showChords(chords){
     for(let i=0;i<chords.length;i++) {
         const newDiv = document.createElement("div");
         newDiv.id="chord"+String(i+1);
-        const note = document.createElement("p");
-        note.innerHTML=chords[i].note;
-        const type = document.createElement("p");
-        type.innerHTML=chords[i].type;
-        type.name="type";
-        newDiv.appendChild(note);
-        newDiv.appendChild(type);
+        newDiv.innerHTML=chords[i].note+chords[i].type+"("+chords[i].duration+")";
         display.appendChild(newDiv);
     }
 }

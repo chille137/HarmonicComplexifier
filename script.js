@@ -1,19 +1,45 @@
-import {addChords, showScale, showDegrees, showSequence} from "./Resources/elements.js"
-import {keyFinder, retDegrees, seqFinder, updateValues} from "./Resources/functions.js";
+import {addChords} from "./Resources/elements.js"
+import {updateValues} from "./Resources/functions.js";
 import {complexify} from "./Resources/complexifyFunc.js";
+import {play, stop} from "./Resources/audio.js";
 
 //window.addEventListener("load", addChords, false);
 addChords();
+let newChords = []
+
 
 let complex = document.getElementById("complexButton");
+let playIn = document.getElementById("playIn");
+let playOut = document.getElementById("playOut");
+let pause = document.getElementById("stop");
+
+
+playIn.onclick=playin;
+playOut.onclick=playout;
+pause.onclick=stop;
+
 complex.onclick=applyComplexify;
+
+/**TO DO: add bpm**/
+let bpm = 120
 
 function applyComplexify(){
     let lvl = document.getElementById("complexLvl").value;
-    complexify(lvl);
+    newChords=complexify(lvl);
 }
 
-function showTonic(){
+function playin(){
+    play(1,updateValues(),bpm)
+}
+
+function playout(){
+    if(!newChords.length)
+        return
+    play(1,newChords,bpm)
+
+}
+
+/*function showTonic(){
     let tonic = keyFinder();
     showScale(tonic)
     showDegrees(tonic)
@@ -26,5 +52,5 @@ function showTonic(){
     showSequence(seq);
 
 
-}
+}*/
 

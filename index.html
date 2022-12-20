@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Harmonic Complexifier</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.js"></script>
 </head>
 <body>
     <label for="chords">Choose 4 Chords:</label>
     <div id="chords"></div>
+    <button id="playIn">Play</button>
     <button id="complexButton">Complexify</button>
     <div class="sliderContainer">
         <input type="range" min="1" max="5" value="1" class="slider" id="complexLvl">
     </div>
     <div id="rootDisplay"></div>
     <div id="seqDisplay"></div>
+    <button id="playOut">Play</button>
+    <button id="stop">Stop</button>
     <div id="compDisplay"></div>
     <script type="module" src="./script.js"></script>
 </body>
