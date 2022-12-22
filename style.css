@@ -48,6 +48,7 @@ button.big-button {
     background: var(--colorShadeE);
     transform-style: preserve-3d;
     transition: all 175ms cubic-bezier(0, 0, 1, 1);
+    place-content: center;
 }
 button.big-button::before {
     position: absolute;
@@ -94,3 +95,20 @@ particle {
     background-repeat: no-repeat;
     background-size: contain;
 }
+
+
+
+.play-button {
+    margin: 0 auto;
+    top: 25%;
+    bottom: 25%;
+    position: relative;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 1.5em 0 1.5em 3em;
+    border-color: transparent transparent transparent rgb(106, 163, 137);
+    opacity: 1;
+}
+
+
