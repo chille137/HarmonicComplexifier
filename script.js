@@ -2,6 +2,8 @@ import {addChords} from "./Resources/elements.js"
 import {updateValues} from "./Resources/functions.js";
 import {complexify} from "./Resources/complexifyFunc.js";
 import {play, stop} from "./Resources/audio.js";
+import {pop} from "./Resources/particleExplosion.js";
+
 
 //window.addEventListener("load", addChords, false);
 addChords();
@@ -19,6 +21,10 @@ playOut.onclick=playout;
 pause.onclick=stop;
 
 complex.onclick=applyComplexify;
+complex.addEventListener('click', pop);
+// if (document.body.animate) {
+//     document.querySelectorAll('button').forEach(button => button.addEventListener('click', pop));
+// }
 
 /**TO DO: add bpm**/
 let bpm = 120
