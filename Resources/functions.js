@@ -117,6 +117,60 @@ export function seqFinder(degrees_param) {
         }*/
 }
 
+export function newSeqFinder(degrees_param){
+    let degs = [...degrees_param];
+    let notFound = "chord not in scale"
+    let seq = JSON.parse(JSON.stringify(sequences));
+
+    if(degs.includes(notFound)) {
+        let j = degs.indexOf(notFound)
+        if(degs[(j-1)%4]!=degrees[0])
+            return false
+        degs.splice(j,1)
+        seq=seq.slice(0,4)
+        for(let i = 0; i<seq.length; i++)
+            seq[i]=seq[i].slice(1,4)
+    }
+
+    let seqCounter;
+
+    for(let i = 0; i<degs.length; i++){
+        for (let j = 0; j<seq.length; j++){
+            seqCounter=0;
+            for (let k = 0; k<degs.length; k++){
+                if(seq[j][k]==degs[k])
+                    seqCounter+=1;
+            }
+            if (seqCounter==4)
+                return seq[j]
+            if (seqCounter==3 && degs.length==3)
+                return seq[j]
+        }
+        degs = degs.slice(1,4).concat(degs[0])
+    }
+
+    if (degs.length==4)
+        return false
+
+    for(let i = 0; i<seq.length; i++)
+        seq[i]=seq[i].slice(1,4)
+
+    for(let i = 0; i<degs.length; i++){
+        for (let j = 0; j<seq.length; j++){
+            seqCounter=0;
+            for (let k = 0; k<degs.length; k++){
+                if(seq[j][k]==degs[k])
+                    seqCounter+=1;
+            }
+            if (seqCounter==3)
+                return seq[j]
+        }
+        degs = degs.slice(1,4).concat(degs[0])
+    }
+
+    return false
+}
+
 /** find the key of the four chord progression **/
 export function keyFinder(){
     let chords = updateValues();
