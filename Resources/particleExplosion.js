@@ -1,12 +1,12 @@
 
 export function pop (e) {
-    let amount = 20;
+    let amount = 25;
     for (let i = 0; i < amount; i++) {
-        createParticle( e.clientX, e.clientY + window.scrollY, e.target.dataset.type);
+        createParticle( e.clientX, e.clientY );
     }
 }
 
-function createParticle (x, y, type) {
+function createParticle (x, y) {
     const particle = document.createElement('particle');
     document.body.appendChild(particle);
     let width = Math.floor(Math.random() * 30 + 8);
@@ -31,7 +31,7 @@ function createParticle (x, y, type) {
         }
     ], {
         duration: Math.random() * 1000 + 5000,
-        easing: 'cubic-bezier(0, .9, .57, 1)',
+        easing: 'cubic-bezier(0, .9, .57, 1.8)',
         delay: delay
     });
     animation.onfinish = removeParticle;
