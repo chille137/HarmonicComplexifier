@@ -2,23 +2,39 @@ import {allNotes, triads, quadriads} from "./notes&chords.js";
 import {findDegree} from "./functions.js"
 
 let chords = document.getElementById("chords");
+let grid = document.getElementById("grid");
+let elem = document.querySelector('input[type="range"]');
 let allTypes = triads.concat(quadriads);
+
 
 
 export function addChords(){
     for(let i=1;i<5;i++) {
         const newDiv = document.createElement("div");
         newDiv.id="chord"+String(i);
+        newDiv.className="box";
         const noteSel = document.createElement("select");
         noteSel.name="tonic";
+        noteSel.className="selection";
         const typeSel = document.createElement("select");
         typeSel.name="type";
+        typeSel.className="type_selection";
+        const default_option = document.createElement("option");
+        default_option.innerText="Notes";
+        default_option.setAttribute("selected", "");
+        default_option.setAttribute("disabled", "");
+        noteSel.appendChild(default_option)
         for(let j=0;j<allNotes.length;j++){
             const option = document.createElement("option");
             option.value = allNotes[j];
             option.text = allNotes[j];
             noteSel.appendChild(option);
         }
+        const default_option2 = document.createElement("option");
+        default_option2.innerText="Type";
+        default_option2.setAttribute("selected", "");
+        default_option2.setAttribute("disabled", "");
+        typeSel.appendChild(default_option2)
         for(let j=0;j<allTypes.length;j++){
             const option = document.createElement("option");
             option.value = allTypes[j];
@@ -41,9 +57,17 @@ export function showChords(chords){
     for(let i=0;i<chords.length;i++) {
         const newDiv = document.createElement("div");
         newDiv.id="chord"+String(i+1);
+        newDiv.className="box";
         newDiv.innerHTML=chords[i].note+chords[i].type+"("+chords[i].duration+")";
         display.appendChild(newDiv);
     }
+    display.classList.add("coral")
+
+    const play_out = document.getElementById("playOut")
+    play_out.style.display = "block";
+
+
+
 }
 
 export function showScale(note){
@@ -54,6 +78,7 @@ export function showScale(note){
     else
         newRoot.innerHTML = "The root is:"+note;
     const display = document.getElementById("rootDisplay");
+    display.classList.add("coral");
     if (display.children.length!=0){
         const root = document.getElementById("root");
         display.removeChild(root)
@@ -90,9 +115,20 @@ export function showSequence(seq){
     else
         newSeq.innerHTML = "The sequence is:"+seq;
     const display = document.getElementById("seqDisplay");
+    display.classList.add("coral");
     if (display.children.length!=0){
         const sequence = document.getElementById("seq");
         display.removeChild(sequence)
     }
     display.appendChild(newSeq);
+}
+
+
+// range slider
+
+export function rangeValue(){
+    let newValue = elem.value;
+    let target = document.querySelector('.value');
+    target.innerHTML = "Lv. " + newValue;
+    elem.addEventListener("input", rangeValue);
 }

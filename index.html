@@ -8,20 +8,25 @@
     <script src="Resources/particleExplosion.js"></script>
 </head>
 <body>
-    <label for="chords">Choose 4 Chords:</label>
+<div id="grid" class="grid-container">
+    <div id="Title">Harmonic Complexifier</div>
+    <div id="chords-label"><h2>Choose your chords:</h2></div>
     <div id="chords"></div>
     <button id="playIn" class="big-button"><div class="play-button"></div></button>
     <button id="complexButton" class="big-button">Complexify</button>
-    <div class="sliderContainer">
-        <input type="range" min="1" max="5" value="1" class="slider" id="complexLvl">
+    <div class="sliderContainer" id="level">
+        <div class="value">Lv. 1</div>
+        <input type="range" min="1" max="5" step="1" value="1"  id="complexLvl">
+        <h3>Level of complexity</h3>
     </div>
+    <div id="compDisplay"></div>
     <div id="rootDisplay"></div>
     <div id="seqDisplay"></div>
     <button id="playOut" class="big-button"><div class="play-button"></div></button>
     <button id="stop" class="big-button">Stop</button>
-    <div id="compDisplay"></div>
+
+
     <script type="module" src="./script.js"></script>
-
-
+</div>
 </body>
 </html>
