@@ -184,28 +184,26 @@ h2 {
 
 #complexButton{
     grid-area: 3 / 4 / 4 / 6;
-    height: 40%;
+    height: 65%;
     width: 75%;
     top: 10%;
     font-size: 1.5vw;
 }
 
-#level{
-    grid-area: 3 / 2 / 4 / 4;
-    position: relative;
-    height: 14em;
-    top: -15%;
 
+#level {
+    grid-area: 3 / 2 / 4 / 4;
+    height: 9em;
 }
+
+
 
 
 h3{
     font-family: myfont;
-    font-size: 35px;
+    font-size: 2vw;
     text-align: center;
-    line-height: 0px;
-    position: relative;
-    top: 20px;
+    line-height: 0;
 }
 
 
@@ -385,14 +383,12 @@ particle {
 .value {
     font-family: "Dosis", Helvetica, Arial, sans-serif;
     color: rgb(106, 163, 137);
-    border-bottom: 3px dashed rgb(106, 163, 137);
+    border-bottom: 0.04em dashed rgb(106, 163, 137);
     text-align: center;
     font-weight: bold;
-    font-size: 4em;
-    width: 200px;
-    height: 70px;
-    line-height: 60px;
-    margin: 35px auto;
+    font-size: 4vw;
+    width: 45%;
+    margin: auto;
     letter-spacing: -.07em;
     text-shadow: #00000075 1px 1px 3px;
 }
@@ -400,17 +396,16 @@ input[type="range"] {
     display: block;
     -webkit-appearance: none;
     background-color: #bdc3c7;
-    width: 250px;
-    height: 5px;
+    width: 60%;
+    height: 2%;
     border-radius: 5px;
-    margin: 0 auto;
-    outline: 0;
+    margin: 5% auto;
 }
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     background-color: rgb(150, 232, 195);
-    width: 20px;
-    height: 20px;
+    width: 1.2rem;
+    height: 1.2rem;
     border-radius: 50%;
     border: 2px solid dimgrey;
     cursor: pointer;
