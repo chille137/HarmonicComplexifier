@@ -57,14 +57,29 @@ export function showChords(chords){
     for(let i=0;i<chords.length;i++) {
         const newDiv = document.createElement("div");
         newDiv.id="chord"+String(i+1);
-        newDiv.className="box";
-        newDiv.innerHTML=chords[i].note+chords[i].type+"("+chords[i].duration+")";
+        newDiv.className="box_2";
+
+        const img = document.createElement("img");
+        img.className = "image";
+        img.src = "https://www.martinguitar.com/dw/image/v2/BGJT_PRD/on/demandware.static/-/Library-Sites-MartinSharedLibrary/default/dwc7164208/images/blog/021622-chords/E.jpg";
+        newDiv.appendChild(img);
+
+
+        const text = document.createElement("div");
+        text.className = "text-container";
+        const label = document.createElement("h3");
+        label.innerHTML=chords[i].note+chords[i].type+"("+chords[i].duration+")";
+        text.appendChild(label);
+        newDiv.appendChild(text);
+
         display.appendChild(newDiv);
     }
-    display.classList.add("coral")
+    display.style.display = "flex";
 
     const play_out = document.getElementById("playOut")
     play_out.style.display = "block";
+    // setTimeout(() => {window.scrollBy({top: 300, left:0, behavior: 'smooth'})}, 800);
+
 
 
 

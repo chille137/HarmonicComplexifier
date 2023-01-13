@@ -10,7 +10,7 @@
 .grid-container{
     display: grid;
     grid-template-columns: repeat(6, 1fr); /*sei colonne da un fr */
-    grid-template-rows: 1fr auto auto auto 2fr;
+    grid-template-rows: 1fr auto auto 3.5fr 2fr;
     grid-column-gap: 0.25em;
     grid-row-gap: 2.5em;
 
@@ -174,8 +174,8 @@ h2 {
 #playOut {
     grid-area: 4 / 6 / 5 / 7;
     width: 70%;
-    height: 50%;
-    top: 22%;
+    height: 26%;
+    top: 45%;
     left: 13%;
     display: none;
 }
@@ -234,14 +234,20 @@ h3{
 }
 
 #compDisplay{
-
     grid-area: 4 / 2 / 5 / 6;
-    display: inline-flex;
-    height: 150px;
-    border-radius:20%;
-    font-size: 30px;
-    font-family: myfont;
-    font-weight: bold;
+    background: bisque;
+    /*display: flex;*/
+    height: 175px;
+    width: 100%;
+    top: 30%;
+    border-radius: 1.5em;
+    border-style: solid;
+    border-width: 1.4px;
+    border-color: burlywood;
+    position: relative;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    display: none;
 }
 
 .coral{
@@ -397,7 +403,7 @@ input[type="range"] {
     -webkit-appearance: none;
     background-color: #bdc3c7;
     width: 60%;
-    height: 2%;
+    height: 3%;
     border-radius: 5px;
     margin: 5% auto;
 }
@@ -421,3 +427,55 @@ input[type="range"]::-webkit-slider-thumb:active {
 
 
 
+
+.box_2{
+
+    position: relative;
+    width: 13em;
+    height: 8em;
+    background: radial-gradient(#f588d8, #c0a3e5);
+    border-radius: 8px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+    margin: 2%;
+}
+
+
+.image{
+    position: relative;
+    width: 10em;
+    height: 10em;
+    background: green;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    left: 43%;
+    transform: translate(-50%,-60%);
+}
+
+
+.text-container {
+    text-align: center;
+    position: relative;
+    top: -70%;
+    font-size: 4vw;
+}
+
+@keyframes bounce {
+    0%, 20%, 60%, 100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    40% {
+        -webkit-transform: translateY(-20px);
+        transform: translateY(-20px);
+    }
+
+    80% {
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+}
+
+.box_2:hover {
+    animation: bounce 1s;
+}
