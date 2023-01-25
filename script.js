@@ -27,7 +27,7 @@ complex.addEventListener('click', pop);
 
 
 /**TO DO: add bpm**/
-let bpm = 120
+let bpm = 60
 
 function applyComplexify(){
     let lvl = document.getElementById("complexLvl").value;
@@ -35,7 +35,7 @@ function applyComplexify(){
 }
 
 function playin(){
-    play(1,updateValues(),120)
+    play(1,updateValues(),bpm)
 }
 
 function playout(){
@@ -45,18 +45,4 @@ function playout(){
 
 }
 
-/*function showTonic(){
-    let tonic = keyFinder();
-    showScale(tonic)
-    showDegrees(tonic)
-    if (!tonic) {
-        showSequence("Sequence not found")
-        return
-    }
-    let degs = retDegrees(tonic,updateValues());
-    let seq = seqFinder(degs);
-    showSequence(seq);
-
-
-}*/
 
