@@ -1,5 +1,14 @@
 @import url(https://fonts.googleapis.com/css?family=Dosis:700);
 
+:root {
+    --backgroundColor: rgba(246, 241, 209);
+    --colorShadeA: rgb(106, 163, 137);
+    --colorShadeB: rgb(121, 186, 156);
+    --colorShadeC: rgb(150, 232, 195);
+    --colorShadeD: rgb(187, 232, 211);
+    --colorShadeE: rgb(205, 255, 232);
+}
+
 @font-face {
     src: url(fonts/LuckySunshine-axo9R.ttf);
     font-family: myfont;
@@ -13,6 +22,13 @@
     grid-template-rows: 1fr auto auto 3.5fr 2fr;
     grid-column-gap: 0.25em;
     grid-row-gap: 2.5em;
+
+}
+
+.grid-container_2 {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-column-gap: 0;
 
 }
 
@@ -39,20 +55,25 @@
 #Title {
     grid-area: 1 / 2 / 1 / 6;
     position: relative;
+    display: flex;
+    justify-content: center;
     left: 50%;
     transform: translate(-50%);
-    top: 0.2em;
+    top: 5%;
     width: 80%;
-    text-align: center;
-    text-shadow: 2px 1px 0 rgb(150 232 195), 5px 4px 0 rgb(106 163 137);
     border-radius: 20%;
     background: rgb(205, 255, 232);
     border-style: solid;
     border-color: rgb(106, 163, 137);
-    font-size: 4vw;
+}
+
+h1{
+    font-size: 3.5vw;
     font-family: myfont;
     font-weight: bold;
-    line-height: 78px;
+    text-align: center;
+    text-shadow: 2px 1px 0 rgb(150 232 195), 5px 4px 0 rgb(106 163 137);
+    margin: 0.5%;
 
 }
 
@@ -64,6 +85,15 @@ h2 {
     line-height: 1.2em;
     position: relative;
 }
+
+h4{
+    font-family: "Dosis", Helvetica, Arial, sans-serif;
+    font-size: 2vw;
+    text-align: center;
+    line-height: 0;
+}
+
+
 
 #chords-label{
     grid-area: 2 / 1 / 3 / 2;
@@ -142,8 +172,9 @@ h2 {
     left: -4%;
     border-radius: 20%;
     font-size: 20px;
-    font-family: myfont, serif;
+    font-family: "Dosis", Helvetica, Arial, sans-serif;
     background-color: rgb(205, 255, 232);
+    color: darkslategray;
     cursor:  pointer;
 }
 
@@ -268,14 +299,7 @@ h3{
 
 
 
-:root {
-    --backgroundColor: rgba(246, 241, 209);
-    --colorShadeA: rgb(106, 163, 137);
-    --colorShadeB: rgb(121, 186, 156);
-    --colorShadeC: rgb(150, 232, 195);
-    --colorShadeD: rgb(187, 232, 211);
-    --colorShadeE: rgb(205, 255, 232);
-}
+
 
 * {
     box-sizing: border-box;

@@ -67,7 +67,7 @@ export function showChords(chords){
 
         const text = document.createElement("div");
         text.className = "text-container";
-        const label = document.createElement("h3");
+        const label = document.createElement("h4");
         label.innerHTML=chords[i].note+chords[i].type+"("+chords[i].duration+")";
         text.appendChild(label);
         newDiv.appendChild(text);
