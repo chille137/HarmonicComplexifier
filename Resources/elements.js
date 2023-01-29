@@ -8,12 +8,54 @@ let allTypes = triads.concat(quadriads);
 
 
 
+// export function addChords(){
+//     for(let i=1;i<5;i++) {
+//         const newDiv = document.createElement("div");
+//         newDiv.id="chord"+String(i);
+//         newDiv.className="box";
+//         newDiv.classList.add("grid-container_2")
+//         const noteSel = document.createElement("select");
+//         noteSel.name="tonic";
+//         noteSel.className="selection";
+//         const typeSel = document.createElement("select");
+//         typeSel.name="type";
+//         typeSel.className="type_selection";
+//         const default_option = document.createElement("option");
+//         default_option.innerText="Notes";
+//         default_option.setAttribute("selected", "");
+//         default_option.setAttribute("disabled", "");
+//         noteSel.appendChild(default_option)
+//         for(let j=0;j<allNotes.length;j++){
+//             const option = document.createElement("option");
+//             option.value = allNotes[j];
+//             option.text = allNotes[j];
+//             noteSel.appendChild(option);
+//         }
+//         const default_option2 = document.createElement("option");
+//         default_option2.innerText="Type";
+//         default_option2.setAttribute("selected", "");
+//         default_option2.setAttribute("disabled", "");
+//         typeSel.appendChild(default_option2)
+//         for(let j=0;j<allTypes.length;j++){
+//             const option = document.createElement("option");
+//             option.value = allTypes[j];
+//             option.text = allTypes[j];
+//             typeSel.appendChild(option);
+//         }
+//         newDiv.appendChild(noteSel);
+//         newDiv.appendChild(typeSel);
+//         chords.appendChild(newDiv);
+//     }
+// }
+
 export function addChords(){
     for(let i=1;i<5;i++) {
         const newDiv = document.createElement("div");
-        newDiv.id="chord"+String(i);
-        newDiv.className="box";
-        newDiv.classList.add("grid-container_2")
+        newDiv.id="pos_chord"+String(i);
+        const c = document.createElement("div");
+        c.className="box";
+        c.id="chord"+String(i);
+        c.classList.add("grid-container_2")
         const noteSel = document.createElement("select");
         noteSel.name="tonic";
         noteSel.className="selection";
@@ -42,8 +84,9 @@ export function addChords(){
             option.text = allTypes[j];
             typeSel.appendChild(option);
         }
-        newDiv.appendChild(noteSel);
-        newDiv.appendChild(typeSel);
+        c.appendChild(noteSel);
+        c.appendChild(typeSel);
+        newDiv.appendChild(c);
         chords.appendChild(newDiv);
     }
 }
@@ -102,13 +145,39 @@ export function showScale(note){
     display.appendChild(newRoot);
 }
 
+// export function showDegrees(tonic){
+//     for(let i = 0; i < chords.children.length; i++) {
+//         let current = document.getElementById("chord"+String(i+1))
+//         let chordRoot = current.childNodes[0].value;
+//         let chordType = current.childNodes[1].value;
+//         let chord = {note: chordRoot,type: chordType};
+//         let panel = document.getElementById("chords");
+//         const newDegree = document.createElement("p");
+//         if(tonic) {
+//             let degree = findDegree(tonic, chord);
+//             newDegree.id = "degree" + String(i + 1);
+//             newDegree.innerHTML = degree;
+//         }
+//         if (current.childNodes.length==3) {
+//             const prev = current.childNodes[2];
+//             current.removeChild(prev);
+//         }
+//         if(tonic)
+//             current.appendChild(newDegree);
+//             // panel.appendChild(newDegree);
+//     }
+// }
+
 export function showDegrees(tonic){
     for(let i = 0; i < chords.children.length; i++) {
-        let current = document.getElementById("chord"+String(i+1))
+        let position = document.getElementById("pos_chord"+String(i+1))
+        let current = position.childNodes[0];
         let chordRoot = current.childNodes[0].value;
         let chordType = current.childNodes[1].value;
         let chord = {note: chordRoot,type: chordType};
+        // let panel = document.getElementById("chords");
         const newDegree = document.createElement("p");
+        newDegree.classList.add("deg");
         if(tonic) {
             let degree = findDegree(tonic, chord);
             newDegree.id = "degree" + String(i + 1);
@@ -120,6 +189,10 @@ export function showDegrees(tonic){
         }
         if(tonic)
             current.appendChild(newDegree);
+        // const last = current.lastChild;
+        // last.style.display = "none";
+        position.appendChild(newDegree);
+        // panel.appendChild(newDegree);
     }
 }
 
