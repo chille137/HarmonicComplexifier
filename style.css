@@ -58,10 +58,12 @@
     position: relative;
     background: rgb(106, 163, 137);
     width: 80%;
-    height: 60%;
+    height: 63%;
     text-align: center;
-    margin: auto auto;
     margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3%;
     border-radius: 10px;
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
     transition: all 0.2s;
