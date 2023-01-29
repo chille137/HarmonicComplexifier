@@ -186,12 +186,15 @@ export function showDegrees(tonic){
         if (current.childNodes.length==3) {
             const prev = current.childNodes[2];
             current.removeChild(prev);
+            // position.removeChild(prev);
         }
-        if(tonic)
+        if(tonic) {
             current.appendChild(newDegree);
+            position.appendChild(newDegree);
+        }
         // const last = current.lastChild;
         // last.style.display = "none";
-        position.appendChild(newDegree);
+
         // panel.appendChild(newDegree);
     }
 }
