@@ -153,25 +153,31 @@ h4{
 /*}*/
 
 .type_selection{
-    height: 32px;
+    height: 30%;
+    width: 80%;
     text-align: center;
     position: relative;
+    top: 50%;
+    /* left: 50%; */
     border-radius: 8px;
+    transform: translate(0, -50%);
     background-color: var(--backgroundColor);
     cursor:  pointer;
 }
 
 
 
+
 .selection{
-    height: 90%;
-    width: 50%;
+    width: 70%;
+    height: 70%;
     text-align: center;
     position: relative;
-    top: 5px;
-    left: -4%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     border-radius: 20%;
-    font-size: 20px;
+    font-size: 1.6vw;
     font-family: "Dosis", Helvetica, Arial, sans-serif;
     background-color: rgb(205, 255, 232);
     color: darkslategray;

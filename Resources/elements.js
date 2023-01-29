@@ -13,6 +13,7 @@ export function addChords(){
         const newDiv = document.createElement("div");
         newDiv.id="chord"+String(i);
         newDiv.className="box";
+        newDiv.classList.add("grid-container_2")
         const noteSel = document.createElement("select");
         noteSel.name="tonic";
         noteSel.className="selection";
