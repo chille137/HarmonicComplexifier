@@ -175,27 +175,24 @@ export function showDegrees(tonic){
         let chordRoot = current.childNodes[0].value;
         let chordType = current.childNodes[1].value;
         let chord = {note: chordRoot,type: chordType};
-        // let panel = document.getElementById("chords");
         const newDegree = document.createElement("p");
         newDegree.classList.add("deg");
         if(tonic) {
             let degree = findDegree(tonic, chord);
             newDegree.id = "degree" + String(i + 1);
             newDegree.innerHTML = degree;
+            if(degree=="chord not in scale"){
+                newDegree.classList.add("nis")
+            }
         }
-        if (current.childNodes.length==3) {
-            const prev = current.childNodes[2];
-            current.removeChild(prev);
-            // position.removeChild(prev);
+        if (position.childNodes.length==2) {
+            const prev = position.childNodes[1];
+            position.removeChild(prev);
         }
         if(tonic) {
-            current.appendChild(newDegree);
+            // current.appendChild(newDegree);
             position.appendChild(newDegree);
         }
-        // const last = current.lastChild;
-        // last.style.display = "none";
-
-        // panel.appendChild(newDegree);
     }
 }
 
