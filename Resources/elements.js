@@ -48,6 +48,51 @@ let allTypes = triads.concat(quadriads);
 //     }
 // }
 
+export function addPreset(){
+    const text = document.createElement("div");
+    text.style.gridArea = "1 / 1 / 2 / 3";
+    text.innerHTML="Preset";
+    const preset_box = document.getElementById("preset");
+    const noteSel = document.createElement("select");
+    noteSel.name="tonic";
+    noteSel.className="selection";
+    noteSel.style.gridArea = "grid-area:  2 / 1 / 3 / 2";
+    const typeSel = document.createElement("select");
+    typeSel.name="type";
+    typeSel.className="type_selection";
+    typeSel.style.gridArea = "grid-area:  2 / 2 / 3 / 3";
+    const default_option = document.createElement("option");
+    default_option.innerText="Notes";
+    default_option.setAttribute("selected", "");
+    default_option.setAttribute("disabled", "");
+    noteSel.appendChild(default_option)
+    for(let j=0;j<allNotes.length;j++){
+        const option = document.createElement("option");
+        option.value = allNotes[j];
+        option.text = allNotes[j];
+        noteSel.appendChild(option);
+    }
+    const default_option2 = document.createElement("option");
+    default_option2.innerText="Type";
+    default_option2.setAttribute("selected", "");
+    default_option2.setAttribute("disabled", "");
+    typeSel.appendChild(default_option2)
+    for(let j=0;j<allTypes.length;j++){
+        const option = document.createElement("option");
+        option.value = allTypes[j];
+        option.text = allTypes[j];
+        typeSel.appendChild(option);
+    }
+    preset_box.appendChild(text);
+    preset_box.appendChild(noteSel);
+    preset_box.appendChild(typeSel);
+}
+
+
+
+
+
+
 export function addChords(){
     for(let i=1;i<5;i++) {
         const newDiv = document.createElement("div");

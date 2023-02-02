@@ -1,4 +1,5 @@
 import {addChords} from "./Resources/elements.js"
+import {addPreset} from "./Resources/elements.js"
 import {updateValues} from "./Resources/functions.js";
 import {complexify} from "./Resources/complexifyFunc.js";
 import {play, stop} from "./Resources/audio.js";
@@ -7,6 +8,7 @@ import {rangeValue} from "./Resources/elements.js";
 
 //window.addEventListener("load", addChords, false);
 addChords();
+addPreset();
 rangeValue();
 
 let newChords = []

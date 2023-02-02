@@ -27,9 +27,8 @@
 
 .grid-container_2 {
     display: grid;
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 50% 50%;
     grid-column-gap: 0;
-
 }
 
 .grid-container_3 {
@@ -37,6 +36,18 @@
     /*grid-template-rows: 80% 20%;*/
     grid-template-columns: 25% 25% 25% 25%;
     grid-column-gap: 0;
+}
+
+.grid-container_4 {
+    display: grid;
+    grid-template-rows: 10% 90%;
+    grid-template-columns: 50% 50%;
+    grid-row-gap: 0;
+}
+
+#preset{
+    grid-area: 2/1/3/2;
+    font-family: "Dosis", Helvetica, Arial, sans-serif;
 }
 
 #chords {
@@ -162,23 +173,25 @@ h4{
 
 
 .type_selection{
-    height: 30%;
-    width: 80%;
-    text-align: center;
     position: relative;
+    height: 70%;
+    width: 80%;
     top: 50%;
+    border-radius: 20%;
+    font-size: 120%;
+    text-align: center;
     font-family: "Dosis", Helvetica, Arial, sans-serif;
-    border-radius: 8px;
-    transform: translate(0, -50%);
     background-color: var(--backgroundColor);
-    cursor:  pointer;
+    cursor: pointer;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 
 
 
 .selection{
-    width: 70%;
+    width: 80%;
     height: 70%;
     text-align: center;
     position: relative;
@@ -190,7 +203,7 @@ h4{
     font-family: "Dosis", Helvetica, Arial, sans-serif;
     background-color: rgb(205, 255, 232);
     color: darkslategray;
-    cursor:  pointer;
+    cursor: pointer;
 }
 
 
