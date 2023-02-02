@@ -12,7 +12,20 @@
     <div id="Title"><h1>Harmonic Complexifier</h1></div>
     <div id="chords-label"><h2>Choose your chords:</h2></div>
     <div id="chords" class="grid-container_3"></div>
-    <div id="preset" class=" box grid-container_4"></div>
+    <div id="preset" class="box grid-container_4"></div>
+    <div id="sliders" class="slider-grid-container">
+        <div>
+        <div class="value">Lv. 1</div>
+        <input type="range" min="1" max="5" step="1" value="1"  id="complexLvl">
+        <h3>Velocity</h3>
+        </div>
+
+        <div>
+            <div class="value">Lv. 1</div>
+            <input type="range" min="1" max="5" step="1" value="1"  id="complexLvl">
+            <h3>Pattern</h3>
+        </div>
+    </div>
     <button id="playIn" class="big-button"><div class="play-button"></div></button>
     <button id="complexButton" class="big-button">Complexify</button>
     <div class="sliderContainer" id="level">

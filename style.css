@@ -44,6 +44,17 @@
     grid-template-columns: 50% 50%;
     grid-row-gap: 0;
 }
+.slider-grid-container{
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 100%;
+    grid-row-gap: 0;
+}
+
+#sliders{
+    grid-area: 3 / 1 / 4 / 2;
+    border-style: solid;
+}
 
 #preset{
     grid-area: 2/1/3/2;
@@ -213,7 +224,7 @@ h4{
 
 #stop{
     grid-area: 3 / 6 / 4 / 7;
-    height: 40%;
+    height: 30%;
     width:70%;
     left: 13%;
     top: 10%
@@ -243,7 +254,7 @@ h4{
 
 #complexButton{
     grid-area: 3 / 4 / 4 / 6;
-    height: 65%;
+    height: 30%;
     width: 75%;
     top: 10%;
     font-size: 1.5vw;
