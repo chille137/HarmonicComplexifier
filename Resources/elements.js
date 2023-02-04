@@ -167,6 +167,8 @@ export function showChords(chords){
 
     const play_out = document.getElementById("playOut")
     play_out.style.display = "block";
+    const midi = document.getElementById("midiButton");
+    midi.style.display = "block";
     // setTimeout(() => {window.scrollBy({top: 300, left:0, behavior: 'smooth'})}, 800);
 
 
@@ -175,19 +177,20 @@ export function showChords(chords){
 }
 
 export function showScale(note){
-    const newRoot = document.createElement("p");
+    const newRoot = document.createElement("div");
     newRoot.id="root";
     if(!note)
         newRoot.innerHTML = "Couldn't find the root";
     else
         newRoot.innerHTML = "The root is:"+note;
     const display = document.getElementById("rootDisplay");
-    display.classList.add("coral");
+    // display.classList.add("coral");
     if (display.children.length!=0){
         const root = document.getElementById("root");
         display.removeChild(root)
     }
     display.appendChild(newRoot);
+    display.classList.add("animation");
 }
 
 // export function showDegrees(tonic){
@@ -237,25 +240,26 @@ export function showDegrees(tonic){
         if(tonic) {
             // current.appendChild(newDegree);
             position.appendChild(newDegree);
+            newDegree.classList.add("animation2")
         }
     }
 }
 
-export function showSequence(seq){
-    const newSeq = document.createElement("p");
-    newSeq.id="seq";
-    if(!seq)
-        newSeq.innerHTML="Couldn't find any known sequence"
-    else
-        newSeq.innerHTML = "The sequence is:"+seq;
-    const display = document.getElementById("seqDisplay");
-    display.classList.add("coral");
-    if (display.children.length!=0){
-        const sequence = document.getElementById("seq");
-        display.removeChild(sequence)
-    }
-    display.appendChild(newSeq);
-}
+// export function showSequence(seq){
+//     const newSeq = document.createElement("p");
+//     newSeq.id="seq";
+//     if(!seq)
+//         newSeq.innerHTML="Couldn't find any known sequence"
+//     else
+//         newSeq.innerHTML = "The sequence is:"+seq;
+//     const display = document.getElementById("seqDisplay");
+//     display.classList.add("coral");
+//     if (display.children.length!=0){
+//         const sequence = document.getElementById("seq");
+//         display.removeChild(sequence)
+//     }
+//     display.appendChild(newSeq);
+// }
 
 
 // range slider

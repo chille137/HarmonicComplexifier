@@ -1,5 +1,5 @@
 import {keyFinder, newSeqFinder, retDegrees, romToInt, updateValues} from "./functions.js";
-import {showChords, showDegrees, showScale, showSequence} from "./elements.js";
+import {showChords, showDegrees, showScale} from "./elements.js";
 import {allNotes, degrees, quadriads, scaleBuilder, triads} from "./notes&chords.js";
 
 export function complexify(lvl){
@@ -11,7 +11,7 @@ export function complexify(lvl){
     if(!tonic){
         seq=false;
         newChords=updateValues();
-        showSequence(seq, "");
+        // showSequence(seq, "");
         showChords(newChords);
         return newChords;
     }
@@ -20,12 +20,12 @@ export function complexify(lvl){
     seq = newSeqFinder(degs);
     if(!seq) {
         newChords = updateValues()
-        showSequence(seq, "");
+        // showSequence(seq, "");
         showChords(newChords);
         return newChords;
     }
 
-    showSequence(seq);
+    // showSequence(seq);
 
     if(lvl) {
         //newChords = triadsToQuadriads(tonic, seq);

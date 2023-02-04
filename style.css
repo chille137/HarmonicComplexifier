@@ -256,14 +256,16 @@ h4{
     grid-area: 3 / 4 / 4 / 6;
     height: 30%;
     width: 75%;
-    top: 10%;
+    top: 20%;
     font-size: 1.5vw;
 }
 
 
 #level {
     grid-area: 3 / 2 / 4 / 4;
+    position: relative;
     height: 9em;
+    top: 15%;
 }
 
 
@@ -279,28 +281,43 @@ h3{
 
 
 #rootDisplay{
-    grid-area: 5 / 2 / 6 / 2;
-    height: 100px;
-    width: 200px;
-    /*border-color: transparent;*/
-    border-radius: 10%;
-    text-align: center;
-    font-size: 30px;
-    font-family: myfont;
-    font-weight: bold;
+    grid-area: 2 / 2 / 3 / 6;
+    position: relative;
+    height: 40%;
+    width: 35%;
+    left: 50%;
+    transform: translate(-50%);
+    top: 55%;
+    margin: 0;
+    z-index: -1;
+    border-style: double;
+    border-radius: 15px;
+    border-color: burlywood;
+    background: radial-gradient(#f588d8, #c0a3e5);
 }
 
-#seqDisplay{
-    grid-area: 5 / 3 / 6 / 6;
-    height: 100px;
+#root{
+    position: absolute;
     width: 100%;
-    /*border-color: transparent;*/
-    border-radius: 10%;
-    text-align: center;
-    font-size: 30px;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
     font-family: myfont;
-    font-weight: bold;
+    font-size: 2.3vw;
+    text-shadow: 2px 1px 0 orange;
+    text-align: center;
 
+}
+
+
+#midiButton{
+    grid-area: 5 / 3 / 5 / 5;
+    height: 60%;
+    width: 80%;
+    left: 50%;
+    transform: translate(-50%);
+    display: none;
+    font-size: 1.3vw;
 }
 
 #compDisplay{
@@ -541,4 +558,48 @@ input[type="range"]::-webkit-slider-thumb:active {
 
 .box_2:hover {
     animation: bounce 1s;
+}
+
+.animation{
+    animation:mymove 3s ease-out forwards;
+    /* Safari and Chrome */
+    -webkit-animation:mymove 3s;
+    animation-fill-mode: forwards;
+}
+
+.animation2{
+    animation: opaco 3s ;
+}
+
+
+@keyframes mymove
+{ from {top: 55%}
+    to {top:88%}
+}
+
+@-webkit-keyframes mymove /* Safari and Chrome */
+{
+    from {top: 55%}
+    to {top:88%}
+}
+
+
+@keyframes opaco{
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes opaco{
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
