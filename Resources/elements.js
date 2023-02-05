@@ -288,8 +288,34 @@ export function showDegrees(tonic){
 // range slider
 
 export function rangeValue(){
-    let newValue = elem.value;
-    let target = document.querySelector('.value');
-    target.innerHTML = "Lv. " + newValue;
-    elem.addEventListener("input", rangeValue);
+    let slider = document.getElementById("complexLvl");
+    let newValue = slider.value;
+    let level = document.getElementById("compLev");
+    level.innerHTML = "Lv. " + newValue;
+    slider.addEventListener("input", rangeValue);
 }
+
+export function rangeValue2(){
+    let slider = document.getElementById("speed");
+    let newValue = slider.value;
+    let level = document.getElementById("speedLev");
+    level.innerHTML = "Lv. " + newValue;
+    slider.addEventListener("input", rangeValue2);
+}
+
+export function rangeValue3(){
+    let slider = document.getElementById("pattern");
+    let newValue = slider.value;
+    let level = document.getElementById("patternLev");
+    level.innerHTML = "Lv. " + newValue;
+    slider.addEventListener("input", rangeValue3);
+}
+
+
+// export function rangeValue(slid, lev){
+//     let slider = document.getElementById(slid);
+//     let newValue = slider.value;
+//     let level = document.getElementById(lev);
+//     level.innerHTML = "Lv. " + newValue;
+//     slider.addEventListener("input", rangeValue);
+// }

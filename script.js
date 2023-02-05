@@ -1,15 +1,20 @@
-import {addChords} from "./Resources/elements.js"
+import {addChords, rangeValue, rangeValue2, rangeValue3} from "./Resources/elements.js"
 import {addPreset} from "./Resources/elements.js"
 import {updateValues} from "./Resources/functions.js";
 import {complexify} from "./Resources/complexifyFunc.js";
 import {play, stop} from "./Resources/audio.js";
 import {pop} from "./Resources/particleExplosion.js";
-import {rangeValue} from "./Resources/elements.js";
+
+
 
 //window.addEventListener("load", addChords, false);
 addChords();
 addPreset();
 rangeValue();
+rangeValue2();
+rangeValue3();
+
+// rangeValue("complexLvl", "compLev");
 
 let newChords = []
 
