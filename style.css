@@ -316,6 +316,7 @@ h3{
     width: 80%;
     /*left: 50%;*/
     /*transform: translate(-50%);*/
+    margin: 0 auto;
     display: none;
     font-size: 1.3vw;
 }
