@@ -1,9 +1,10 @@
-import {allNotes, triads, quadriads} from "./notes&chords.js";
-import {findDegree} from "./functions.js"
+import {allNotes, triads, quadriads, sequences, scaleBuilder} from "./notes&chords.js";
+import {findDegree, romToInt} from "./functions.js"
 
 let chords = document.getElementById("chords");
 let grid = document.getElementById("grid");
 let elem = document.querySelector('input[type="range"]');
+let preset = document.getElementById("preset");
 let allTypes = triads.concat(quadriads);
 
 
@@ -57,10 +58,10 @@ export function addPreset(){
     noteSel.name="tonic";
     noteSel.className="selection";
     noteSel.style.gridArea = "grid-area:  2 / 1 / 3 / 2";
-    const typeSel = document.createElement("select");
-    typeSel.name="type";
-    typeSel.className="type_selection";
-    typeSel.style.gridArea = "grid-area:  2 / 2 / 3 / 3";
+    const seqSel = document.createElement("select");
+    seqSel.name="sequence";
+    seqSel.className="type_selection";
+    seqSel.style.gridArea = "grid-area:  2 / 2 / 3 / 3";
     const default_option = document.createElement("option");
     default_option.innerText="Notes";
     default_option.setAttribute("selected", "");
@@ -73,19 +74,41 @@ export function addPreset(){
         noteSel.appendChild(option);
     }
     const default_option2 = document.createElement("option");
-    default_option2.innerText="Type";
+    default_option2.innerText="Sequence";
     default_option2.setAttribute("selected", "");
     default_option2.setAttribute("disabled", "");
-    typeSel.appendChild(default_option2)
-    for(let j=0;j<allTypes.length;j++){
+    seqSel.appendChild(default_option2)
+    for(let j=0;j<sequences.length;j++){
         const option = document.createElement("option");
-        option.value = allTypes[j];
-        option.text = allTypes[j];
-        typeSel.appendChild(option);
+        option.value = sequences[j];
+        option.text = sequences[j];
+        seqSel.appendChild(option);
     }
     preset_box.appendChild(text);
     preset_box.appendChild(noteSel);
-    preset_box.appendChild(typeSel);
+    preset_box.appendChild(seqSel);
+    noteSel.addEventListener("change",checkPreset);
+    seqSel.addEventListener("change",checkPreset);
+}
+
+function checkPreset(){
+    const note = preset.childNodes[1].value;
+    const sequence = preset.childNodes[2].value;
+    if (note == "Notes" || sequence == "Sequence")
+        return
+    let seq;
+    for(let i = 0; i < sequences.length; i++)
+        if(sequence==sequences[i])
+            seq=sequences[i];
+    const scale = scaleBuilder(note);
+    for(let i = 0; i < 4; i++){
+        const chord = document.getElementById("chord"+(i+1))
+        const scalechord = scale[2 * (romToInt(seq[i]))]
+        chord.childNodes[0].value=scalechord.note;
+        chord.childNodes[1].value=scalechord.type;
+    }
+
+
 }
 
 

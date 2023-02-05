@@ -17,6 +17,8 @@ let complex = document.getElementById("complexButton");
 let playIn = document.getElementById("playIn");
 let playOut = document.getElementById("playOut");
 let pause = document.getElementById("stop");
+let playbackSpeed = document.getElementById("speed");
+let pattern = document.getElementById("pattern");
 
 
 playIn.onclick=playin;
@@ -37,13 +39,13 @@ function applyComplexify(){
 }
 
 function playin(){
-    play(1,updateValues(),bpm)
+    play(pattern.value,updateValues(),bpm*playbackSpeed.value)
 }
 
 function playout(){
     if(!newChords.length)
         return
-    play(1,newChords,bpm)
+    play(pattern.value,newChords,bpm*playbackSpeed.value)
 
 }
 
