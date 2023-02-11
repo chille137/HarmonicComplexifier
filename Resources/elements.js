@@ -299,7 +299,7 @@ export function rangeValue2(){
     let slider = document.getElementById("speed");
     let newValue = slider.value;
     let level = document.getElementById("speedLev");
-    level.innerHTML = "Lv. " + newValue;
+    level.innerHTML = "x" + newValue;
     slider.addEventListener("input", rangeValue2);
 }
 
@@ -307,7 +307,7 @@ export function rangeValue3(){
     let slider = document.getElementById("pattern");
     let newValue = slider.value;
     let level = document.getElementById("patternLev");
-    level.innerHTML = "Lv. " + newValue;
+    level.innerHTML = newValue;
     slider.addEventListener("input", rangeValue3);
 }
 

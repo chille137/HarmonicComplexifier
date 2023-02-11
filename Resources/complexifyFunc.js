@@ -9,7 +9,6 @@ export function complexify(lvl){
     let newChords;
     showDegrees(tonic);
     if(!tonic){
-        seq=false;
         newChords=updateValues();
         // showSequence(seq, "");
         showChords(newChords);
@@ -45,7 +44,7 @@ export function complexify(lvl){
         lvl-=1;
     }
     if(lvl)
-        newChords = tritone(tonic,newChords)
+        newChords = tritone(seq,newChords)
 
     showChords(newChords);
     return newChords;
@@ -162,18 +161,20 @@ function parallelKey(tonic,chords){
     let n = scale[7].note
     let min4 = {note:n, type:triads[1]};
     min4.duration=2;
-
     let newChords =  JSON.parse(JSON.stringify(chords));
-    newChords.splice(6, 0, min4)
-    newChords[5].duration=2;
+    let i = 6
+    if(chords[chords.length-1].note!=tonic)
+        i = chords.length
+    newChords.splice(i, 0, min4)
+    newChords[i-1].duration=2;
     return newChords
 }
 
-function tritone(tonic,chords){
+function tritone(sequence,chords){
     let newChords =  JSON.parse(JSON.stringify(chords));
-    let i=1;
-    if(chords[chords.length-1].note==tonic)
-        i=2;
+    let i=2;
+    if(sequence[1]==degrees[5])
+        i=1;
     let n = (allNotes.indexOf(chords[i].note)+6)%12;
     let chord = {note:allNotes[n], type:quadriads[1], duration:1};
     newChords.splice(i, 1, chord)
