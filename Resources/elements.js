@@ -186,7 +186,20 @@ export function showChords(chords){
 
         display.appendChild(newDiv);
     }
-    display.style.display = "flex";
+    let children = display.childNodes.length;
+    display.style.display = "grid";
+    if(children==4)
+        display.style.gridTemplateColumns = "repeat(4,1fr)";
+    if(children==5)
+        display.style.gridTemplateColumns = "repeat(5,1fr)";
+    if(children==6)
+        display.style.gridTemplateColumns = "repeat(6,1fr)";
+    if(children==7)
+        display.style.gridTemplateColumns = "repeat(7,1fr)";
+    if(children==8)
+        display.style.gridTemplateColumns = "repeat(8,1fr)";
+
+    // display.style.gridTemplateColumns = "repeat(children,1fr)";
 
     const play_out = document.getElementById("playOut")
     play_out.style.display = "block";
@@ -205,7 +218,7 @@ export function showScale(note){
     if(!note)
         newRoot.innerHTML = "Couldn't find the root";
     else
-        newRoot.innerHTML = "The root is:"+note;
+        newRoot.innerHTML = "The root is: "+note;
     const display = document.getElementById("rootDisplay");
     // display.classList.add("coral");
     if (display.children.length!=0){
@@ -299,7 +312,7 @@ export function rangeValue2(){
     let slider = document.getElementById("speed");
     let newValue = slider.value;
     let level = document.getElementById("speedLev");
-    level.innerHTML = "x" + newValue;
+    level.innerHTML = "x " + newValue;
     slider.addEventListener("input", rangeValue2);
 }
 

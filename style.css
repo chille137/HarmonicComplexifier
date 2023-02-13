@@ -14,6 +14,10 @@
     font-family: myfont;
 }
 
+@font-face {
+    src: url(fonts/JuneCalligraphyRegular-8pBg.ttf);
+    font-family: myfont2;
+}
 
 
 .grid-container{
@@ -53,7 +57,6 @@
 
 #sliders{
     grid-area: 3 / 1 / 4 / 2;
-    border-style: solid;
 }
 
 #preset{
@@ -65,7 +68,7 @@
     grid-area: 2 / 2 / 3 / 6;
     background: bisque;
     /*display: flex;*/
-    height: 180px;
+    height: 200px;
     width: 100%;
     margin-top: 2.5%;
     border-radius: 1.5em;
@@ -145,7 +148,7 @@ h2 {
 
 h4{
     font-family: "Dosis", Helvetica, Arial, sans-serif;
-    font-size: 2vw;
+    font-size: 34%;
     text-align: center;
     line-height: 0;
 }
@@ -302,7 +305,7 @@ h3{
     bottom: 0;
     left: 50%;
     transform: translate(-50%);
-    font-family: myfont;
+    font-family: myfont2;
     font-size: 2.3vw;
     text-shadow: 2px 1px 0 orange;
     text-align: center;
@@ -319,6 +322,11 @@ h3{
     margin: 0 auto;
     display: none;
     font-size: 1.3vw;
+}
+
+.output{
+    display: grid;
+    grid-template-columns: auto;
 }
 
 #compDisplay{
@@ -512,12 +520,12 @@ input[type="range"]::-webkit-slider-thumb:active {
 .box_2{
 
     position: relative;
-    width: 100%;
+    width: 80%;
     height: 8em;
     background: radial-gradient(#f588d8, #c0a3e5);
     border-radius: 8px;
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
-    margin: 2%;
+    margin: auto;
 }
 
 
