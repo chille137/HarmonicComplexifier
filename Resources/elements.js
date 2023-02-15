@@ -167,24 +167,25 @@ export function showChords(chords){
     if(!chords)
         return
     for(let i=0;i<chords.length;i++) {
-        const newDiv = document.createElement("div");
-        newDiv.id="chord"+String(i+1);
-        newDiv.className="box_2";
+        const text_container = document.createElement("div");
+        const testo = document.createElement("h5");
+        text_container.id="chord"+String(i+1);
+        text_container.className="box_2";
+        testo.innerHTML=chords[i].note+chords[i].type+"("+chords[i].duration+")";
+        text_container.appendChild(testo);
+
+
+        const image_container = document.createElement("div");
+        image_container.className="image_container";
+        text_container.appendChild(image_container);
 
         const img = document.createElement("img");
-        img.className = "image";
+        img.className = "immagine";
         img.src = "https://www.martinguitar.com/dw/image/v2/BGJT_PRD/on/demandware.static/-/Library-Sites-MartinSharedLibrary/default/dwc7164208/images/blog/021622-chords/E.jpg";
-        newDiv.appendChild(img);
+        image_container.appendChild(img);
 
 
-        const text = document.createElement("div");
-        text.className = "text-container";
-        const label = document.createElement("h4");
-        label.innerHTML=chords[i].note+chords[i].type+"("+chords[i].duration+")";
-        text.appendChild(label);
-        newDiv.appendChild(text);
-
-        display.appendChild(newDiv);
+        display.appendChild(text_container);
     }
     let children = display.childNodes.length;
     display.style.display = "grid";
