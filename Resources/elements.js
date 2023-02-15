@@ -179,9 +179,10 @@ export function showChords(chords){
         image_container.className="image_container";
         text_container.appendChild(image_container);
 
+        const nome_nota = chords[i].note+chords[i].type+"("+chords[i].duration+")";
         const img = document.createElement("img");
         img.className = "immagine";
-        img.src = "https://www.martinguitar.com/dw/image/v2/BGJT_PRD/on/demandware.static/-/Library-Sites-MartinSharedLibrary/default/dwc7164208/images/blog/021622-chords/E.jpg";
+        img.src = "immagini/" + nome_nota + ".png";
         image_container.appendChild(img);
 
 
