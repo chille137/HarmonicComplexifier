@@ -179,7 +179,7 @@ export function showChords(chords){
         image_container.className="image_container";
         text_container.appendChild(image_container);
 
-        const nome_nota = chords[i].note+chords[i].type+"("+chords[i].duration+")";
+        const nome_nota = chords[i].note+chords[i].type;
         const img = document.createElement("img");
         img.className = "immagine";
         img.src = "immagini/" + nome_nota + ".png";
