@@ -1,0 +1,12 @@
+.DS_Store
+npm-debug.log
+node_modules
+build
+index.html
+index.js
+yarn.lock
+
+# test artifacts
+test.mid.mid
+.nyc_output/
+

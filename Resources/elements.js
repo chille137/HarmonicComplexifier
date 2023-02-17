@@ -112,10 +112,6 @@ function checkPreset(){
 }
 
 
-
-
-
-
 export function addChords(){
     for(let i=1;i<5;i++) {
         const newDiv = document.createElement("div");

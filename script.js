@@ -4,6 +4,7 @@ import {updateValues} from "./Resources/functions.js";
 import {complexify} from "./Resources/complexifyFunc.js";
 import {play, stop} from "./Resources/audio.js";
 import {pop} from "./Resources/particleExplosion.js";
+import {midiExport} from "./Resources/midiExport.js";
 
 
 
@@ -24,11 +25,13 @@ let playOut = document.getElementById("playOut");
 let pause = document.getElementById("stop");
 let playbackSpeed = document.getElementById("speed");
 let pattern = document.getElementById("pattern");
+let midiButton = document.getElementById("midiButton");
 
 
 playIn.onclick=playin;
 playOut.onclick=playout;
 pause.onclick=stop;
+midiButton.onclick=exportMidi;
 
 complex.onclick=applyComplexify;
 complex.addEventListener('click', pop);
@@ -52,6 +55,18 @@ function playout(){
         return
     play(pattern.value,newChords,bpm*playbackSpeed.value)
 
+}
+
+function exportMidi(){
+    if(!newChords.length)
+        return
+    const url = midiExport(newChords)
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'my_midi_file.mid';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }
 
 
