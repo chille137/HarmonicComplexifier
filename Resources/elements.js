@@ -4,7 +4,7 @@ import {findDegree, romToInt} from "./functions.js"
 let chords = document.getElementById("chords");
 let grid = document.getElementById("grid");
 let elem = document.querySelector('input[type="range"]');
-let preset = document.getElementById("preset");
+let preset = document.getElementById("first");
 let allTypes = triads.concat(quadriads);
 
 
@@ -49,19 +49,56 @@ let allTypes = triads.concat(quadriads);
 //     }
 // }
 
+// export function addPreset(){
+//     const text = document.createElement("div");
+//     text.style.gridArea = "1 / 1 / 2 / 3";
+//     text.innerHTML="Preset";
+//     const preset_box = document.getElementById("preset");
+//     const noteSel = document.createElement("select");
+//     noteSel.name="tonic";
+//     noteSel.className="selection";
+//     noteSel.style.gridArea = "grid-area:  2 / 1 / 3 / 2";
+//     const seqSel = document.createElement("select");
+//     seqSel.name="sequence";
+//     seqSel.className="type_selection";
+//     seqSel.style.gridArea = "grid-area:  2 / 2 / 3 / 3";
+//     const default_option = document.createElement("option");
+//     default_option.innerText="Notes";
+//     default_option.setAttribute("selected", "");
+//     default_option.setAttribute("disabled", "");
+//     noteSel.appendChild(default_option)
+//     for(let j=0;j<allNotes.length;j++){
+//         const option = document.createElement("option");
+//         option.value = allNotes[j];
+//         option.text = allNotes[j];
+//         noteSel.appendChild(option);
+//     }
+//     const default_option2 = document.createElement("option");
+//     default_option2.innerText="Sequence";
+//     default_option2.setAttribute("selected", "");
+//     default_option2.setAttribute("disabled", "");
+//     seqSel.appendChild(default_option2)
+//     for(let j=0;j<sequences.length;j++){
+//         const option = document.createElement("option");
+//         option.value = sequences[j];
+//         option.text = sequences[j];
+//         seqSel.appendChild(option);
+//     }
+//     preset_box.appendChild(text);
+//     preset_box.appendChild(noteSel);
+//     preset_box.appendChild(seqSel);
+//     noteSel.addEventListener("change",checkPreset);
+//     seqSel.addEventListener("change",checkPreset);
+// }
+
 export function addPreset(){
-    const text = document.createElement("div");
-    text.style.gridArea = "1 / 1 / 2 / 3";
-    text.innerHTML="Preset";
-    const preset_box = document.getElementById("preset");
+    const preset_box = document.getElementById("first");
     const noteSel = document.createElement("select");
     noteSel.name="tonic";
-    noteSel.className="selection";
-    noteSel.style.gridArea = "grid-area:  2 / 1 / 3 / 2";
+    noteSel.className="select1";
     const seqSel = document.createElement("select");
     seqSel.name="sequence";
-    seqSel.className="type_selection";
-    seqSel.style.gridArea = "grid-area:  2 / 2 / 3 / 3";
+    seqSel.className="select2";
     const default_option = document.createElement("option");
     default_option.innerText="Notes";
     default_option.setAttribute("selected", "");
@@ -84,7 +121,6 @@ export function addPreset(){
         option.text = sequences[j];
         seqSel.appendChild(option);
     }
-    preset_box.appendChild(text);
     preset_box.appendChild(noteSel);
     preset_box.appendChild(seqSel);
     noteSel.addEventListener("change",checkPreset);
@@ -92,8 +128,8 @@ export function addPreset(){
 }
 
 function checkPreset(){
-    const note = preset.childNodes[1].value;
-    const sequence = preset.childNodes[2].value;
+    const note = preset.childNodes[0].value;
+    const sequence = preset.childNodes[1].value;
     if (note == "Notes" || sequence == "Sequence")
         return
     let seq;

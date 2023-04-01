@@ -23,9 +23,9 @@
 .grid-container{
     display: grid;
     grid-template-columns: repeat(6, 1fr); /*sei colonne da un fr */
-    grid-template-rows: 1fr auto auto 2fr 2fr;
+    grid-template-rows: 1fr 3fr auto 2fr 2fr;
     grid-column-gap: 0.25em;
-    grid-row-gap: 2.5em;
+    grid-row-gap: 3%;
 
 }
 
@@ -42,12 +42,6 @@
     grid-column-gap: 0;
 }
 
-.grid-container_4 {
-    display: grid;
-    grid-template-rows: 10% 90%;
-    grid-template-columns: 50% 50%;
-    grid-row-gap: 0;
-}
 .slider-grid-container{
     display: grid;
     grid-template-rows: 50% 50%;
@@ -59,16 +53,91 @@
     grid-area: 3 / 1 / 4 / 2;
 }
 
-#preset{
+#preset_box {
     grid-area: 2/1/3/2;
+    /* grid-area: 1 / 2 / 2 / 4; */
+    position: relative;
+    width: 104%;
+    height: 82%;
+    top: 17%;
+    /* transform: translate(0,-50%); */
+    left: -6%;
+    z-index: +1;
+}
+
+
+#first{
+    position: absolute;
+    right: 0;
+    width: 80%;
+    height: 100%;
+    background: #6AA389;
+    border-width: 1px 1px 1px 0px;
+    border-style: solid;
+    border-color: #a34692;
+    border-radius: 23% 0 0 23%;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+}
+
+
+
+#preset_label{
+    position: relative;
+    font-size: 1vw;
     font-family: "Dosis", Helvetica, Arial, sans-serif;
+    text-align: center;
+    margin-left: 15%;
+    border-style: double;
+    border-radius: 15px;
+    width: 12%;
+    top: 50%;
+    transform: translate(0,-50%);
+    border-color: #a34692;
+    background: bisque;
+    z-index: +1;
+}
+
+.select1{
+    grid-area: 1 / 1 / 2 / 2;;
+    width: 66%;
+    height: 70%;
+    text-align: center;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-41%, -50%);
+    border-radius: 20%;
+    font-size: 120%;
+    font-family: "Dosis", Helvetica, Arial, sans-serif;
+    background-color: rgb(205, 255, 232);
+    color: darkslategray;
+    cursor: pointer;
+}
+
+
+.select2{
+    grid-area: 2 / 1 / 3 / 2;
+    position: relative;
+    height: 70%;
+    width: 66%;
+    top: 50%;
+    border-radius: 20%;
+    font-size: 120%;
+    text-align: center;
+    font-family: "Dosis", Helvetica, Arial, sans-serif;
+    background-color: rgba(246, 241, 209);
+    cursor: pointer;
+    left: 50%;
+    transform: translate(-41%, -50%);
 }
 
 #chords {
     grid-area: 2 / 2 / 3 / 6;
     background: bisque;
     /*display: flex;*/
-    height: 200px;
+    height: 90%;
     width: 100%;
     margin-top: 2.5%;
     border-radius: 1.5em;
@@ -289,7 +358,7 @@ h3{
     width: 35%;
     left: 50%;
     transform: translate(-50%);
-    top: 55%;
+    top: 50%;
     margin: 0;
     z-index: -1;
     border-style: double;
@@ -615,14 +684,14 @@ h5{
 
 
 @keyframes mymove
-{ from {top: 55%}
-    to {top:88%}
+{ from {top: 50%}
+    to {top: 85%}
 }
 
 @-webkit-keyframes mymove /* Safari and Chrome */
 {
-    from {top: 55%}
-    to {top:88%}
+    from {top: 50%}
+    to {top: 85%}
 }
 
 
