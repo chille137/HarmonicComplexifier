@@ -31,10 +31,41 @@ let playbackSpeed = document.getElementById("speed");
 let pattern = document.getElementById("pattern");
 let midiButton = document.getElementById("midiButton");
 
+let triangle = document.getElementById("triangle");
+let triangle2 = document.getElementById("triangle2");
+let playbtn = document.getElementById("playIn");
+let playbtnout = document.getElementById("playOut");
+let isplaying = false;
+let isplaying2 = false;
 
-playIn.onclick=playin;
-playOut.onclick=playout;
-pause.onclick=stop;
+function cambia(){
+    if(!isplaying){
+        triangle.classList.toggle("paused");
+        isplaying = true;
+        playin();
+    }
+    else{
+        triangle.classList.toggle("paused");
+        isplaying = false;
+        stop();
+    }
+}
+playbtn.onclick = cambia;
+
+function cambia2(){
+    if(!isplaying2){
+        triangle2.classList.toggle("paused");
+        isplaying2 = true;
+        playin();
+    }
+    else{
+        triangle2.classList.toggle("paused");
+        isplaying2 = false;
+        stop();
+    }
+}
+playbtnout.onclick = cambia2;
+
 midiButton.onclick=exportMidi;
 
 complex.onclick=applyComplexify;
