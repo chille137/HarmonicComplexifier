@@ -260,7 +260,7 @@ h4{
     width: 80%;
     top: 50%;
     border-radius: 20%;
-    font-size: 120%;
+    font-size: 1.4vw;
     text-align: center;
     font-family: "Dosis", Helvetica, Arial, sans-serif;
     background-color: var(--backgroundColor);
@@ -281,7 +281,7 @@ h4{
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 20%;
-    font-size: 120%;
+    font-size: 1.4vw;
     font-family: "Dosis", Helvetica, Arial, sans-serif;
     background-color: rgb(205, 255, 232);
     color: darkslategray;
