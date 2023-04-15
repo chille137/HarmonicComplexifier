@@ -5,6 +5,7 @@ let chords = document.getElementById("chords");
 let grid = document.getElementById("grid");
 let elem = document.querySelector('input[type="range"]');
 let preset = document.getElementById("first");
+let preset1 = document.getElementById("preset_box");
 let allTypes = triads.concat(quadriads);
 
 
@@ -367,3 +368,11 @@ export function rangeValue3(){
 //     level.innerHTML = "Lv. " + newValue;
 //     slider.addEventListener("input", rangeValue);
 // }
+
+export function showPreset(){
+    preset1.classList.add("animation3");
+}
+
+export function index1(){
+    preset1.style.zIndex = "+1";
+}

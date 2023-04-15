@@ -1,5 +1,7 @@
 import {addChords, rangeValue, rangeValue2, rangeValue3} from "./Resources/elements.js"
 import {addPreset} from "./Resources/elements.js"
+import {showPreset} from "./Resources/elements.js"
+import {index1} from "./Resources/elements.js"
 import {updateValues} from "./Resources/functions.js";
 import {complexify} from "./Resources/complexifyFunc.js";
 import {play, stop} from "./Resources/audio.js";
@@ -14,6 +16,8 @@ addPreset();
 rangeValue();
 rangeValue2();
 rangeValue3();
+setTimeout(showPreset,100);
+setTimeout(index1, 2110);
 
 // rangeValue("complexLvl", "compLev");
 
