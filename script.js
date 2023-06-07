@@ -56,7 +56,7 @@ function cambia2(){
     if(!isplaying2){
         triangle2.classList.toggle("paused");
         isplaying2 = true;
-        playin();
+        playout();
     }
     else{
         triangle2.classList.toggle("paused");
