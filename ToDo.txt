@@ -7,4 +7,4 @@ Aggiunta note sotto accordi in output
 A#7 fix (?)
 
 NIC:
-Fixed playback bug when spamming "play-stop"
+--
