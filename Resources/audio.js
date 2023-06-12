@@ -1,17 +1,24 @@
 let isPlaying=false;
+let source = [];
+let seq = null;
 
 
 export function play(pattern, chords,bpm){
     if(isPlaying)
         return
-    let source = buildSource(pattern,chords)
+    let timeout = !source.length
+    source = buildSource(pattern,chords)
     let sound = buildSound(source)
     isPlaying=true
-    sequencer(sound,0,bpm)
+    if(timeout)
+        setTimeout(() => sequencer(sound,0,bpm),100)
+    else
+        sequencer(sound,0,bpm)
 
 }
 export function stop(){
     Howler.stop()
+    clearTimeout(seq)
     isPlaying=false;
 }
 
@@ -44,6 +51,6 @@ function sequencer(audio,i,bpm){
         return
     audio[i].play()
     let dur = (60/bpm)*1000
-   setTimeout(() => sequencer(audio,(i+1)%audio.length,bpm),dur)
+    seq = setTimeout(() => sequencer(audio,(i+1)%audio.length,bpm),dur)
 
 }

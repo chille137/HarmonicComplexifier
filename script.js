@@ -50,13 +50,13 @@ function ready(){
 function cambia(){
     if(!ready() || isplaying2)
         return
-    triangle.classList.toggle("paused");
     if(!isplaying){
         playin();
     }
     else{
         stop();
     }
+    triangle.classList.toggle("paused");
     isplaying = !isplaying
 }
 playbtn.onclick = cambia;
