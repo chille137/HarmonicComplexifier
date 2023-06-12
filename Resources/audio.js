@@ -1,18 +1,16 @@
 let isPlaying=false;
-let source = [];
+
+
 export function play(pattern, chords,bpm){
     if(isPlaying)
         return
-    source = buildSource(pattern,chords)
+    let source = buildSource(pattern,chords)
     let sound = buildSound(source)
     isPlaying=true
     sequencer(sound,0,bpm)
 
 }
 export function stop(){
-    /*for(let i = 0; i < source.length; i++)
-        source[i].unload()
-    isPlaying=false;*/
     Howler.stop()
     isPlaying=false;
 }

@@ -24,9 +24,9 @@ setTimeout(index1, 2110);
 let newChords = []
 
 let complex = document.getElementById("complexButton");
-let playIn = document.getElementById("playIn");
-let playOut = document.getElementById("playOut");
-let pause = document.getElementById("stop");
+//let playIn = document.getElementById("playIn");
+//let playOut = document.getElementById("playOut");
+//let pause = document.getElementById("stop");
 let playbackSpeed = document.getElementById("speed");
 let pattern = document.getElementById("pattern");
 let midiButton = document.getElementById("midiButton");
@@ -38,31 +38,40 @@ let playbtnout = document.getElementById("playOut");
 let isplaying = false;
 let isplaying2 = false;
 
+function ready(){
+    for(let i = 1; i < 5; i++){
+        let current = document.getElementById("chord" + i);
+        if (current.childNodes[0].value === "Notes" || current.childNodes[1].value === "Type")
+            return false
+    }
+    return true;
+}
+
 function cambia(){
+    if(!ready() || isplaying2)
+        return
+    triangle.classList.toggle("paused");
     if(!isplaying){
-        triangle.classList.toggle("paused");
-        isplaying = true;
         playin();
     }
     else{
-        triangle.classList.toggle("paused");
-        isplaying = false;
         stop();
     }
+    isplaying = !isplaying
 }
 playbtn.onclick = cambia;
 
 function cambia2(){
+    if(isplaying)
+        return
+    triangle2.classList.toggle("paused");
     if(!isplaying2){
-        triangle2.classList.toggle("paused");
-        isplaying2 = true;
         playout();
     }
     else{
-        triangle2.classList.toggle("paused");
-        isplaying2 = false;
         stop();
     }
+    isplaying2 = !isplaying2
 }
 playbtnout.onclick = cambia2;
 
@@ -98,7 +107,7 @@ function exportMidi(){
     const url = midiExport(newChords)
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'my_midi_file.mid';
+    link.download = 'complexified_progression_lvl' + document.getElementById("complexLvl").value +'.mid';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

@@ -4,8 +4,7 @@ Pattern arpeggiato
 MIC:
 Posizionamento sliders
 Aggiunta note sotto accordi in output
-A#7 fix
+A#7 fix (?)
 
 NIC:
-Pulsante play solo quando inseriti tutti accordi
-Gestione pulsanti play quando suonano entrambi
+Fixed playback bug when spamming "play-stop"
