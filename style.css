@@ -19,39 +19,93 @@
     font-family: myfont2;
 }
 
-
+/*GRID dell'intera pagina*/
 .grid-container{
     display: grid;
     grid-template-columns: repeat(6, 1fr); /*sei colonne da un fr */
-    grid-template-rows: 1fr 3fr auto 2fr 2fr;
+    grid-template-rows: 1fr 3.2fr auto 3fr;
     grid-column-gap: 0.25em;
-    grid-row-gap: 3%;
+    grid-row-gap: 4%;
 
 }
 
+/*GRID of the single chord box*/
 .grid-container_2 {
     display: grid;
     grid-template-columns: 50% 50%;
     grid-column-gap: 0;
 }
 
+/*GRID input chords*/
 .grid-container_3 {
     display: grid;
-    /*grid-template-rows: 80% 20%;*/
     grid-template-columns: 25% 25% 25% 25%;
     grid-column-gap: 0;
 }
 
+
+/*PLAYER SECTION*/
+#playerContainer {
+    grid-area: 2 / 6 / 3 / 7;
+    background-color: darksalmon;
+    position: relative;
+    border-style: solid;
+    border-color: rgb(106, 163, 137) rgb(106, 163, 137) transparent rgb(106, 163, 137);
+    border-width: 2px;
+    border-radius: 15px 15px 2% 5px;
+    width: 93%;
+    height: 101%;
+    top: 15%;
+    left: 7%;
+}
+
+/*#playerLabel{*/
+/*    position: relative;*/
+/*    top: -15%;*/
+/*}*/
+
+/*.playerLabelStyle{*/
+/*    width: 60%;*/
+/*    background-color: var(--colorShadeE);*/
+/*    text-shadow: 2px 1px 3px #d95c32;*/
+/*    border-color: rgb(106, 163, 137);*/
+/*}*/
+
+#playIn{
+    grid-area: 2 / 6 / 3 / 7;
+}
+/*GRID sliders in the player*/
 .slider-grid-container{
     display: grid;
-    grid-template-rows: 50% 50%;
-    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+    grid-template-columns: 50% 50%;
     grid-row-gap: 0;
 }
 
 #sliders{
-    grid-area: 3 / 1 / 4 / 2;
+    grid-area: 3 / 5 / 4 / 7;
 }
+
+#patternSlider {
+    /*border-style: solid;*/
+    /*border-color: rgb(106, 163, 137) transparent rgb(106, 163, 137) rgb(106, 163, 137);*/
+    /*border-width: 2px;*/
+    /*position: relative;*/
+    /*border-radius: 15px 0px 0px 15px;*/
+    /*left: 8%;*/
+    /*background-color: darksalmon;*/
+}
+
+#speedSlider {
+    /*border-style: solid;*/
+    /*border-color: transparent rgb(106, 163, 137) rgb(106, 163, 137) transparent;*/
+    /*border-radius: 0px 0px 15px 0px;*/
+    /*border-width: 2px;*/
+    /*background-color: darksalmon;*/
+}
+
+
+
 
 #preset_box {
     grid-area: 2/1/3/2;
@@ -64,6 +118,7 @@
 }
 
 
+/*GRID preset box + style*/
 #first{
     position: absolute;
     right: 0;
@@ -98,6 +153,8 @@
     z-index: +1;
 }
 
+
+/*primo selection menu del preset*/
 .select1{
     grid-area: 1 / 1 / 2 / 2;;
     width: 66%;
@@ -115,7 +172,7 @@
     cursor: pointer;
 }
 
-
+/*secondo selection menu del preset*/
 .select2{
     grid-area: 2 / 1 / 3 / 2;
     position: relative;
@@ -136,7 +193,7 @@
     grid-area: 2 / 2 / 3 / 6;
     background: bisque;
     /*display: flex;*/
-    height: 90%;
+    height: 85%;
     width: 100%;
     margin-top: 2.5%;
     border-radius: 1.5em;
@@ -237,6 +294,7 @@ h4{
     border-radius: 50%;
 }
 
+/*Not in scale label*/
 .nis{
     border-radius: 20%;
     width: 60%;
@@ -305,38 +363,31 @@ h4{
 
 
 
-#playIn {
-    grid-area: 2 / 6 / 3 / 7;
-    width: 70%;
-    height: 36%;
-    top: 38%;
-    left: 13%;
-}
+
 
 #playOut {
     grid-area: 4 / 6 / 5 / 7;
     width: 70%;
-    height: 50%;
-    left: 13%;
+    height: 40%;
+    left: 18%;
+    top: 15%;
     display: none;
 }
 
 
 
 #complexButton{
-    grid-area: 3 / 4 / 4 / 6;
-    height: 30%;
-    width: 75%;
-    top: 20%;
-    font-size: 1.5vw;
+    grid-area: 3 / 3 / 4 / 5;
 }
 
 
+
+
 #level {
-    grid-area: 3 / 2 / 4 / 4;
+    grid-area: 3 / 1 / 4 / 3;
     position: relative;
-    height: 9em;
-    top: 15%;
+    left: 3%;
+    width: 110%;
 }
 
 
@@ -382,14 +433,13 @@ h3{
 
 
 #midiButton{
-    grid-area: 5 / 3 / 5 / 5;
-    height: 60%;
+    grid-area: 4 / 1 / 5 / 2;
+    position: relative;
+    top: 15%;
+    height: 40%;
     width: 80%;
-    /*left: 50%;*/
-    /*transform: translate(-50%);*/
     margin: 0 auto;
     display: none;
-    font-size: 1.3vw;
 }
 
 .output{
@@ -401,8 +451,8 @@ h3{
     grid-area: 4 / 2 / 5 / 6;
     background: bisque;
     /*display: flex;*/
-    height: 85px;
     width: 100%;
+    height: 70%;
     border-radius: 1.5em;
     border-style: solid;
     border-width: 1.4px;
@@ -511,6 +561,21 @@ button.big-button:active::before {
     box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.25em 0 0 var(--colorShadeB);
 }
 
+.complexButtonStyle{
+    height: 60%;
+    width: 75%;
+    font-size: 1.5vw;
+    margin: auto;
+}
+
+.playInStyle{
+    width: 70%;
+    height: 36%;
+    top: 35%;
+    left: 18%;
+
+}
+
 
 particle {
     position: fixed;
@@ -598,6 +663,8 @@ input[type="range"]::-webkit-slider-thumb:active {
 
 .box_2{
 
+    display: grid;
+    grid-template-rows: 45% 55%;
     position:relative;
     width: 75%;
     height: 80%;
@@ -609,23 +676,39 @@ input[type="range"]::-webkit-slider-thumb:active {
 
 }
 
-h5{
+.outputName{
+    display: grid;
+    grid-area: 1/1/2/2;
     font-family: "Dosis", Helvetica, Arial, sans-serif;
-    font-size: 34%;
-    line-height: 0;
+    font-size: 45%;
+    line-height: 3;
     text-align: center;
 }
 
+#durationImage{
+    grid-area: 2/1/3/2;
+}
+
+/*h5{*/
+/*    font-family: "Dosis", Helvetica, Arial, sans-serif;*/
+/*    font-size: 34%;*/
+/*    line-height: 0;*/
+/*    text-align: center;*/
+/*}*/
+
 .image_container{
     position: absolute;
+    grid-area: 1/1/2/2;
     width: 160px;
     height: 150px;
-    top: -250%;
-    margin: auto;
+    top: -175px;
+    left: -30px;
+    /* margin: auto; */
+    margin-bottom: -26%;
     background: rgb(106, 163, 137);
     border-radius: 20px 20px 20px 20px;
     box-shadow: rgb(38 57 77) 0px 20px 30px -10px;
-    pointer-events:none;
+    pointer-events: none;
     opacity: 0;
 }
 
@@ -650,6 +733,16 @@ h5{
     top: 50%;
     transform: translate(0,-50%);
     border-radius: 20px 20px 20px 20px;
+}
+
+.immagine2{
+    position: relative;
+    width: 25%;
+    margin-bottom: 5%;
+}
+
+.semibreve{
+    width:15%;
 }
 
 
@@ -701,13 +794,13 @@ h5{
 
 @keyframes mymove
 { from {top: 50%}
-    to {top: 85%}
+    to {top: 78%}
 }
 
 @-webkit-keyframes mymove /* Safari and Chrome */
 {
     from {top: 50%}
-    to {top: 85%}
+    to {top: 78%}
 }
 
 @keyframes mymove2

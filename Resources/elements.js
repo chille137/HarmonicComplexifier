@@ -200,16 +200,17 @@ export function showChords(chords){
     if(!chords)
         return
     for(let i=0;i<chords.length;i++) {
+        const out_chord = document.createElement("div");
+        out_chord.className="box_2";
         const text_container = document.createElement("div");
-        const testo = document.createElement("h5");
+        text_container.classList.add("outputName");
         text_container.id="chord"+String(i+1);
-        text_container.className="box_2";
-        testo.innerHTML=chords[i].note+chords[i].type+"("+chords[i].duration+")";
-        text_container.appendChild(testo);
-
+        text_container.innerHTML=chords[i].note+chords[i].type;
+        out_chord.appendChild(text_container);
 
         const image_container = document.createElement("div");
         image_container.className="image_container";
+        // out_chord.appendChild(image_container);
         text_container.appendChild(image_container);
 
         const nome_nota = chords[i].note+chords[i].type;
@@ -219,8 +220,21 @@ export function showChords(chords){
         img.src = "immagini/" + percorso + ".png";
         image_container.appendChild(img);
 
+        const imgDur = document.createElement("div");
+        imgDur.id="durationImage";
+        out_chord.appendChild(imgDur);
 
-        display.appendChild(text_container);
+        const durata = chords[i].duration;
+        const img2 = document.createElement("img");
+        img2.className = "immagine2";
+        if(durata==4){
+            img2.classList.add("semibreve");
+        }
+        img2.src = "immagini/" + durata + ".png";
+        imgDur.appendChild(img2);
+
+
+        display.appendChild(out_chord);
     }
     let children = display.childNodes.length;
     display.style.display = "grid";

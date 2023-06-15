@@ -22,20 +22,22 @@
     <div id="chords-label"><h2>Choose your chords:</h2></div>
     <div id="chords" class="grid-container_3"></div>
     <div id="sliders" class="slider-grid-container">
-        <div>
-        <div id="speedLev" class="value">x1</div>
-        <input type="range" min="1" max="2" step="0.25" value="1"  id="speed">
-        <h3>Playback speed</h3>
-        </div>
 
-        <div>
+        <div id="patternSlider">
             <div id="patternLev" class="value">1</div>
             <input type="range" min="1" max="3" step="1" value="1"  id="pattern">
             <h3>Pattern</h3>
         </div>
+
+        <div id="speedSlider">
+            <div id="speedLev" class="value">x1</div>
+            <input type="range" min="1" max="2" step="0.25" value="1"  id="speed">
+            <h3>Playback speed</h3>
+        </div>
     </div>
-    <button id="playIn" class="big-button"><div id="triangle" class="play-button"></div></button>
-    <button id="complexButton" class="big-button">Complexify</button>
+
+    <button id="playIn" class="big-button playInStyle"><div id="triangle" class="play-button"></div></button>
+    <button id="complexButton" class="big-button complexButtonStyle">Complexify</button>
     <div class="sliderContainer" id="level">
         <div id="compLev" class="value">Lv. 1</div>
         <input type="range" min="1" max="5" step="1" value="1"  id="complexLvl">
