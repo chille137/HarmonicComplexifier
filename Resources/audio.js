@@ -25,6 +25,13 @@ export function stop(){
 function buildSource(pattern, chords){
     let sources = []
     let begin = 'AudioFiles/Pattern'+String(pattern)+'/'
+    let speed = '';
+    let add = '';
+    if (pattern == 2) {
+        speed = document.getElementById("speed").value
+        if (speed == 1.5)
+            add = '_1_5'
+    }
     for (let i = 0; i<chords.length; i++){
         let note = chords[i].note
         note = note.replace('#','s')
@@ -32,7 +39,7 @@ function buildSource(pattern, chords){
         if(type==='M')
             type=''
         for(let j=0; j<chords[i].duration; j++)
-            sources = sources.concat([begin+String(note)+String(type)+'.wav'])
+            sources = sources.concat([begin + String(note) + String(type) + String(add) + '.wav'])
     }
     return sources
 }
@@ -52,5 +59,4 @@ function sequencer(audio,i,bpm){
     audio[i].play()
     let dur = (60/bpm)*1000
     seq = setTimeout(() => sequencer(audio,(i+1)%audio.length,bpm),dur)
-
 }

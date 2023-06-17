@@ -1,10 +1,8 @@
 ROCCO:
-Pattern arpeggiato
+--
 
 MIC:
-Posizionamento sliders
-Aggiunta note sotto accordi in output
-A#7 fix (?)
+--
 
 NIC:
 --
