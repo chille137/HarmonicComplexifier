@@ -24,7 +24,7 @@ The main idea of this project was to develop a sort of didactic tool that enable
 Let's now see in detail how these features have been implemented.
 
 ### Sequence Recognition and Root Finding
-First of all, the inputted sequence is converted into an array of Object, structured as {note: note_name, type: chord_type, duration: 4}, by using the function "updateValues()", from the [a relative link](Resources/function.js) file.
+First of all, the inputted sequence is converted into an array of Object, structured as {note: note_name, type: chord_type, duration: 4}, by using the function "updateValues()", from the [function.js](Resources/function.js) file.
 ### Complexifying the Sequence
 ### Audio playback
 ### Midi Export
