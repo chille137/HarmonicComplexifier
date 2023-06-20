@@ -25,6 +25,62 @@ Let's now see in detail how these features have been implemented.
 
 ### Sequence Recognition and Root Finding
 First of all, the inputted sequence is converted into an array of Object, structured as {note: note_name, type: chord_type, duration: 4}, by using the function "updateValues()", from the [function.js](Resources/function.js) file.
+
+```
+export function updateValues(){
+    let chord1v_new = document.getElementById("chord1").childNodes[0].value;
+    let chord2v_new = document.getElementById("chord2").childNodes[0].value;
+    ...
+    let chord1t_new = document.getElementById("chord1").childNodes[1].value;
+    ...
+    return [{note: chord1v_new, type: chord1t_new, duration: 4}, ...]
+}
+```
+#### KeyFinder
+
+Now, the "keyfinder()" function allows us to find the root, if present, of the given sequence.
+To do so, we build the major scale for each chord note by using the "scaleBuilder(note)" funciton, which returns an array of all the chords in the given scale, both in triads and in tetrads. All the music related data is contained under the [notes&chords.js](Resources/notes&chords.js) file.
+If one of the given scales contains all the chords of the sequence, then that will be the root of the sequence.
+If none of the scales contains all the chords, the scale that contains at least 3 chords will be considered as the root.
+
+```
+export function keyFinder(){
+    let chords = updateValues();  //obtain the array of chords
+    let chords_in = 0;
+    let tonic = '';
+    for (let i = 0; i < chords.length; i++){ //create the scale for each of the chords note
+        let scale = scaleBuilder(chords[i].note);
+        let chords_in_new=0;
+        for (let j = 0; j < chords.length; j++){
+            if(containsChord(scale,chords[j]))
+                chords_in_new+=1;
+        }
+        if (chords_in_new>chords_in) { //update the tonic if the number of chords contained is higher than the previous one
+            chords_in = chords_in_new;
+            tonic=chords[i].note;
+        }
+        if (chords_in == 4) //if it contains all the chords, that note will be the root
+            return tonic;
+    }
+    if (chords_in > 2) //the root of the scale containing at least 3 chords will be returned as the root of the sequence
+        return tonic 
+```
+If none of the scales contains at least 3 chords, then we check all the other possible major scales.
+If one of the scales satisfies the previous mentioned requirements, the root of that scale will be considered as the root. Else, the function returns false.
+
+#### Sequence Finder
+We then check if the sequence of chords that has been inputted by the user fits with the possible sequences used by the software. In fact, this implementation of the Harmonic Complexifier works only with these 6 different sequences of chords:
+- 1-2-5-1
+- 1-4-5-1
+- 1-5-4-1
+- 1-6-5-1
+- 1-6-2-5
+- 1-5-6-4
+
+Having obtained the array containing the degrees of the chords, by using the "retDegrees(root,chords)" function, we pass it as a parameter to the "newSeqFinder(degrees_param)" function shown here:
+```
+```
+
 ### Complexifying the Sequence
 ### Audio playback
 ### Midi Export
