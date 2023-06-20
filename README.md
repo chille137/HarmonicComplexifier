@@ -24,12 +24,13 @@ The main idea of this project was to develop a sort of didactic tool that enable
 Let's now see in detail how these features have been implemented.
 
 ### Sequence Recognition and Root Finding
+First of all, the inputted sequence is converted into an array of Object, structured as {note: note_name, type: chord_type, duration: 4}, by using the function "updateValues()", from the [a relative link](Resources/function.js) file.
 ### Complexifying the Sequence
 ### Audio playback
 ### Midi Export
 ### User Interface
 
-## Conclusion
+## Conclusions
 We believe that the "Harmonic Complexifier" succeds in its purpouse of guiding a beginning musician in music theory. by encouraging him to evolve and vary using the level of complexity and transformations he likes best.
 There are some aspect that could be improved or added in following implementations, such as increasing the possible sequences to work with and the harmonization of minor keys. Also, it would be a nice addition to differ the musical instruments with which the result can be heard, and visualize the tablature of the outputted chords for those instruments as well.
 
