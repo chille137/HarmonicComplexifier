@@ -85,7 +85,7 @@ Having obtained the array containing the degrees of the chords, by using the "re
 ### Audio playback
 ### Midi Export
 ### User Interface
-The Graphical User Interface of the Harmonic Complexifier is a grid-based GUI obtained through the use of CSS Grid layout. Thanks to this powerful layout system, a flexibile and responsive layout has been obtained in a more intuitive and easier way. For example, the entire page is based on the following grid: 
+The Graphical User Interface of the Harmonic Complexifier is a grid-based GUI obtained through the use of <b>CSS Grid layout</b>. Thanks to this powerful layout system, a flexibile and responsive layout has been obtained in a more intuitive and easier way. For example, the entire page is based on the following grid: 
 ```
 .grid-container{
     display: grid;
@@ -95,7 +95,27 @@ The Graphical User Interface of the Harmonic Complexifier is a grid-based GUI ob
     grid-row-gap: 4%;
 }
 ```
-Another important element of the Harmonic Complexifier GUI is the style of the buttons:
+A peculiar feature of the Harmonic Complexifier GUI consists in the style of the buttons:
+<p>
+  <img src = "readmeImgs/COMP_BUTT.png">
+  <img src = "readmeImgs/PLAY_BUTT.png">
+  <img src = "readmeImgs/MIDI_BUTT.png">
+</p>
+The 3D style of the buttons has been achieved using the <b>transform</b> property in combination with <b>translate3d()</b> function.
+In particular, within the <b>button.big-button::before</b> selector, the following property is responsible for creating the 3D effect:
+
+```
+transform: translate3d(0, 0.75em, -1em);
+```
+This combination of translation values creates a visual effect where the pseudo-element appears to be slightly raised above the button, adding a sense of depth and a 3D-like appearance.
+
+Another important object which builds up this graphical interface is the input type HTML element <b>Range Slider</b>. \
+The Harmonic Complexifier provides three sliders which play different role but they all share the same CSS style:
+<p>
+  <img src = "readmeImgs/LEVEL.png">
+  <img src = "readmeImgs/PATTERN.png">
+  <img src = "readmeImgs/SPEED.png">
+</p>
 
 ## Conclusions
 We believe that the "Harmonic Complexifier" succeds in its purpouse of guiding a beginning musician in music theory. by encouraging him to evolve and vary using the level of complexity and transformations he likes best.
