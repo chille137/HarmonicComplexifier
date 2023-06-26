@@ -77,8 +77,9 @@ export const modes = [{
 /** given the root and the type of chord, returns the notes to build the desired chord**/
 export function chordBuilder(note,type) {
     let notes = [];
-    if (!allNotes.includes(note))
+    if (!allNotes.includes(note)) {
         throw "Invalid note";
+    }
     notes.push(note);
     let noteIndex = allNotes.indexOf(note);
     for(let i=0;i < chordTypes.length; i++)

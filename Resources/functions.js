@@ -235,5 +235,8 @@ export function updateValues(){
     let chord2t_new = document.getElementById("chord2").childNodes[1].value;
     let chord3t_new = document.getElementById("chord3").childNodes[1].value;
     let chord4t_new = document.getElementById("chord4").childNodes[1].value;
-    return [{note: chord1v_new, type: chord1t_new, duration: 4}, {note: chord2v_new, type: chord2t_new, duration: 4},{note: chord3v_new,type: chord3t_new, duration: 4},{note: chord4v_new, type: chord4t_new, duration: 4}]
+    return [{note: chord1v_new, type: chord1t_new, duration: 4},
+            {note: chord2v_new, type: chord2t_new, duration: 4},
+            {note: chord3v_new,type: chord3t_new, duration: 4},
+            {note: chord4v_new, type: chord4t_new, duration: 4}]
 }

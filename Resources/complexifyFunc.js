@@ -24,6 +24,7 @@ export function complexify(lvl){
         return newChords;
     }
 
+
     // showSequence(seq);
 
     if(lvl) {

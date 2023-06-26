@@ -1,6 +1,4 @@
-import {addChords, rangeValue, rangeValue2, rangeValue3} from "./Resources/elements.js"
-import {addPreset} from "./Resources/elements.js"
-import {index1} from "./Resources/elements.js"
+import {addChords, rangeValue, rangeValue2, rangeValue3, index1, addPreset} from "./Resources/elements.js"
 import {updateValues} from "./Resources/functions.js";
 import {complexify} from "./Resources/complexifyFunc.js";
 import {play, stop} from "./Resources/audio.js";
@@ -13,6 +11,8 @@ rangeValue();
 rangeValue2();
 rangeValue3();
 setTimeout(index1, 2110);
+
+
 
 
 
@@ -30,13 +30,39 @@ let isplaying = false;
 let isplaying2 = false;
 let bpm = 60
 
+function handle(){
+    if(ready()){
+        complex.addEventListener('click', pop);
+        return
+    }
+    complex.removeEventListener('click', pop);
+}
+setInterval(handle,1000)
+
+
+function ready(){
+    for(let i = 1; i < 5; i++){
+        let current = document.getElementById("chord" + i);
+        if (current.childNodes[0].value === "Notes" || current.childNodes[1].value === "Type")
+            return false
+    }
+    return true;
+}
+
 function applyComplexify(){
     let lvl = document.getElementById("complexLvl").value;
+    for(let i = 1; i < 5; i++){
+        let current = document.getElementById("chord" + i);
+        if (current.childNodes[0].value === "Notes" || current.childNodes[1].value === "Type") {
+            alert("Please, insert your chords.");
+            return
+        }
+    }
     newChords=complexify(lvl);
 }
 
 function playin(){
-    play(pattern.value,updateValues(),bpm*playbackSpeed.value)
+    play(pattern.value, updateValues(), bpm * playbackSpeed.value);
 }
 
 function playout(){
@@ -59,17 +85,13 @@ function exportMidi(){
 }
 
 
-function ready(){
-    for(let i = 1; i < 5; i++){
-        let current = document.getElementById("chord" + i);
-        if (current.childNodes[0].value === "Notes" || current.childNodes[1].value === "Type")
-            return false
-    }
-    return true;
-}
 
 function cambia(){
-    if(!ready() || isplaying2)
+    if(!ready()) {
+        alert("Please, insert your chords.")
+        return
+    }
+    if(isplaying2)
         return
     if(!isplaying){
         playin();
@@ -97,6 +119,4 @@ function cambia2(){
 playbtnout.onclick = cambia2;
 
 complex.onclick=applyComplexify;
-complex.addEventListener('click', pop);
-
 midiButton.onclick=exportMidi;
