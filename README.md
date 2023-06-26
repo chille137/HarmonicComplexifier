@@ -137,11 +137,13 @@ The input chords can be also selected using the <b>Preset menu</b>:
 </p>
 
 #### Output chords
-Each output chord box contains two fundamental elements: the output chord name and the output chord duration symbol
+Each output chord box contains two fundamental elements: the output chord <b>name</b> and the output chord <b>duration symbol</b>. \
+For example:
 <p>
   <img src = "readmeImgs/output.png">
 </p>
-In addition, once the complexified chords are outputted, the user can visualize the corresponding guitar chords chart hovering on each output chord box:
+
+Last but not least, once the complexified chords are outputted, the user can visualize the corresponding guitar chords chart hovering on each output chord box:
 <p>
   <img src = "readmeImgs/guitar.png">
 </p>
