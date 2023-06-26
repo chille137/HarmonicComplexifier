@@ -1,6 +1,7 @@
 import {allNotes, triads, quadriads, sequences, scaleBuilder} from "./notes&chords.js";
 import {findDegree, romToInt} from "./functions.js"
 
+
 let chords = document.getElementById("chords");
 let grid = document.getElementById("grid");
 let elem = document.querySelector('input[type="range"]');
@@ -10,96 +11,17 @@ let allTypes = triads.concat(quadriads);
 
 
 
-// export function addChords(){
-//     for(let i=1;i<5;i++) {
-//         const newDiv = document.createElement("div");
-//         newDiv.id="chord"+String(i);
-//         newDiv.className="box";
-//         newDiv.classList.add("grid-container_2")
-//         const noteSel = document.createElement("select");
-//         noteSel.name="tonic";
-//         noteSel.className="selection";
-//         const typeSel = document.createElement("select");
-//         typeSel.name="type";
-//         typeSel.className="type_selection";
-//         const default_option = document.createElement("option");
-//         default_option.innerText="Notes";
-//         default_option.setAttribute("selected", "");
-//         default_option.setAttribute("disabled", "");
-//         noteSel.appendChild(default_option)
-//         for(let j=0;j<allNotes.length;j++){
-//             const option = document.createElement("option");
-//             option.value = allNotes[j];
-//             option.text = allNotes[j];
-//             noteSel.appendChild(option);
-//         }
-//         const default_option2 = document.createElement("option");
-//         default_option2.innerText="Type";
-//         default_option2.setAttribute("selected", "");
-//         default_option2.setAttribute("disabled", "");
-//         typeSel.appendChild(default_option2)
-//         for(let j=0;j<allTypes.length;j++){
-//             const option = document.createElement("option");
-//             option.value = allTypes[j];
-//             option.text = allTypes[j];
-//             typeSel.appendChild(option);
-//         }
-//         newDiv.appendChild(noteSel);
-//         newDiv.appendChild(typeSel);
-//         chords.appendChild(newDiv);
-//     }
-// }
-
-// export function addPreset(){
-//     const text = document.createElement("div");
-//     text.style.gridArea = "1 / 1 / 2 / 3";
-//     text.innerHTML="Preset";
-//     const preset_box = document.getElementById("preset");
-//     const noteSel = document.createElement("select");
-//     noteSel.name="tonic";
-//     noteSel.className="selection";
-//     noteSel.style.gridArea = "grid-area:  2 / 1 / 3 / 2";
-//     const seqSel = document.createElement("select");
-//     seqSel.name="sequence";
-//     seqSel.className="type_selection";
-//     seqSel.style.gridArea = "grid-area:  2 / 2 / 3 / 3";
-//     const default_option = document.createElement("option");
-//     default_option.innerText="Notes";
-//     default_option.setAttribute("selected", "");
-//     default_option.setAttribute("disabled", "");
-//     noteSel.appendChild(default_option)
-//     for(let j=0;j<allNotes.length;j++){
-//         const option = document.createElement("option");
-//         option.value = allNotes[j];
-//         option.text = allNotes[j];
-//         noteSel.appendChild(option);
-//     }
-//     const default_option2 = document.createElement("option");
-//     default_option2.innerText="Sequence";
-//     default_option2.setAttribute("selected", "");
-//     default_option2.setAttribute("disabled", "");
-//     seqSel.appendChild(default_option2)
-//     for(let j=0;j<sequences.length;j++){
-//         const option = document.createElement("option");
-//         option.value = sequences[j];
-//         option.text = sequences[j];
-//         seqSel.appendChild(option);
-//     }
-//     preset_box.appendChild(text);
-//     preset_box.appendChild(noteSel);
-//     preset_box.appendChild(seqSel);
-//     noteSel.addEventListener("change",checkPreset);
-//     seqSel.addEventListener("change",checkPreset);
-// }
 
 export function addPreset(){
     const preset_box = document.getElementById("first");
     const noteSel = document.createElement("select");
     noteSel.name="tonic";
-    noteSel.className="select1";
+    noteSel.className="preset_selection";
+    noteSel.id = "notes_select_preset";
     const seqSel = document.createElement("select");
     seqSel.name="sequence";
-    seqSel.className="select2";
+    seqSel.className="preset_selection";
+    seqSel.id = "type_select_preset";
     const default_option = document.createElement("option");
     default_option.innerText="Notes";
     default_option.setAttribute("selected", "");
@@ -144,8 +66,6 @@ function checkPreset(){
         chord.childNodes[0].value=scalechord.note;
         chord.childNodes[1].value=scalechord.type;
     }
-
-
 }
 
 
@@ -159,10 +79,12 @@ export function addChords(){
         c.classList.add("grid-container_2")
         const noteSel = document.createElement("select");
         noteSel.name="tonic";
-        noteSel.className="selection";
+        noteSel.className="chord_selection";
+        noteSel.classList.add("notes_selection");
         const typeSel = document.createElement("select");
         typeSel.name="type";
-        typeSel.className="type_selection";
+        typeSel.className="chord_selection";
+        typeSel.classList.add("type_selection");
         const default_option = document.createElement("option");
         default_option.innerText="Notes";
         default_option.setAttribute("selected", "");
@@ -209,31 +131,28 @@ export function showChords(chords){
         out_chord.appendChild(text_container);
 
         const image_container = document.createElement("div");
-        image_container.className="image_container";
-        // out_chord.appendChild(image_container);
+        image_container.className="guitarImage_cont";
         text_container.appendChild(image_container);
 
         const nome_nota = chords[i].note+chords[i].type;
         const percorso = nome_nota.replace("#","d");
         const img = document.createElement("img");
-        img.className = "immagine";
+        img.className = "guitarImage";
         img.src = "immagini/" + percorso + ".png";
         image_container.appendChild(img);
 
         const imgDur = document.createElement("div");
-        imgDur.id="durationImage";
+        imgDur.classList.add("durationImage_cont");
         out_chord.appendChild(imgDur);
 
         const durata = chords[i].duration;
         const img2 = document.createElement("img");
-        img2.className = "immagine2";
+        img2.className = "durationImage";
         if(durata==4){
             img2.classList.add("semibreve");
         }
         img2.src = "immagini/" + durata + ".png";
         imgDur.appendChild(img2);
-
-
         display.appendChild(out_chord);
     }
     let children = display.childNodes.length;
@@ -249,16 +168,14 @@ export function showChords(chords){
     if(children==8)
         display.style.gridTemplateColumns = "repeat(8,1fr)";
 
-    // display.style.gridTemplateColumns = "repeat(children,1fr)";
 
-    const play_out = document.getElementById("playOut")
+
+    const play_out = document.getElementById("play_out_cont")
     play_out.style.display = "block";
-    const midi = document.getElementById("midiButton");
+    play_out.classList.add("showPlayOut");
+    const midi = document.getElementById("midi_cont");
     midi.style.display = "block";
-    // setTimeout(() => {window.scrollBy({top: 300, left:0, behavior: 'smooth'})}, 800);
-
-
-
+    midi.classList.add("showMidi");
 
 }
 
@@ -270,7 +187,6 @@ export function showScale(note){
     else
         newRoot.innerHTML = "The root is: "+note;
     const display = document.getElementById("rootDisplay");
-    // display.classList.add("coral");
     if (display.children.length!=0){
         const root = document.getElementById("root");
         display.removeChild(root)
@@ -309,7 +225,7 @@ export function showDegrees(tonic){
         let chordRoot = current.childNodes[0].value;
         let chordType = current.childNodes[1].value;
         let chord = {note: chordRoot,type: chordType};
-        const newDegree = document.createElement("p");
+        const newDegree = document.createElement("div");
         newDegree.classList.add("deg");
         if(tonic) {
             let degree = findDegree(tonic, chord);
@@ -326,30 +242,13 @@ export function showDegrees(tonic){
         if(tonic) {
             // current.appendChild(newDegree);
             position.appendChild(newDegree);
-            newDegree.classList.add("animation2")
         }
     }
 }
 
-// export function showSequence(seq){
-//     const newSeq = document.createElement("p");
-//     newSeq.id="seq";
-//     if(!seq)
-//         newSeq.innerHTML="Couldn't find any known sequence"
-//     else
-//         newSeq.innerHTML = "The sequence is:"+seq;
-//     const display = document.getElementById("seqDisplay");
-//     display.classList.add("coral");
-//     if (display.children.length!=0){
-//         const sequence = document.getElementById("seq");
-//         display.removeChild(sequence)
-//     }
-//     display.appendChild(newSeq);
-// }
 
 
 // range slider
-
 export function rangeValue(){
     let slider = document.getElementById("complexLvl");
     let newValue = slider.value;
@@ -375,18 +274,6 @@ export function rangeValue3(){
 }
 
 
-// export function rangeValue(slid, lev){
-//     let slider = document.getElementById(slid);
-//     let newValue = slider.value;
-//     let level = document.getElementById(lev);
-//     level.innerHTML = "Lv. " + newValue;
-//     slider.addEventListener("input", rangeValue);
-// }
-
-export function showPreset(){
-    preset1.classList.add("animation3");
-}
-
 export function index1(){
-    preset1.style.zIndex = "+1";
+    preset1.style.zIndex = "0";
 }
