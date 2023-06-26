@@ -85,7 +85,17 @@ Having obtained the array containing the degrees of the chords, by using the "re
 ### Audio playback
 ### Midi Export
 ### User Interface
-The Graphical User Interface of the Harmonic Complexifier is a grid-based GUI obtained through the use of CSS Grid layout. Thanks to this intuitive and powerful layout system, the obtained layout is flexible and responsive.
+The Graphical User Interface of the Harmonic Complexifier is a grid-based GUI obtained through the use of CSS Grid layout. Thanks to this intuitive and powerful layout system, the obtained layout is flexible and responsive. For example, the entire page is based on the following grid: 
+
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /*six column of 1fr */
+    grid-template-rows: 1fr 3.2fr auto 3fr;
+    grid-column-gap: 0.25em;
+    grid-row-gap: 4%;
+}
+
+Another impoertant element of the Harmonic Complexifier GUI is the style of the button 
 
 ## Conclusions
 We believe that the "Harmonic Complexifier" succeds in its purpouse of guiding a beginning musician in music theory. by encouraging him to evolve and vary using the level of complexity and transformations he likes best.
