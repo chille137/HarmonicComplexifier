@@ -3,8 +3,8 @@ import {findDegree, romToInt} from "./functions.js"
 
 
 let chords = document.getElementById("chords");
-let grid = document.getElementById("grid");
-let elem = document.querySelector('input[type="range"]');
+// let grid = document.getElementById("grid");
+// let elem = document.querySelector('input[type="range"]');
 let preset = document.getElementById("first");
 let preset1 = document.getElementById("preset_box");
 let allTypes = triads.concat(quadriads);
@@ -195,28 +195,6 @@ export function showScale(note){
     display.classList.add("animation");
 }
 
-// export function showDegrees(tonic){
-//     for(let i = 0; i < chords.children.length; i++) {
-//         let current = document.getElementById("chord"+String(i+1))
-//         let chordRoot = current.childNodes[0].value;
-//         let chordType = current.childNodes[1].value;
-//         let chord = {note: chordRoot,type: chordType};
-//         let panel = document.getElementById("chords");
-//         const newDegree = document.createElement("p");
-//         if(tonic) {
-//             let degree = findDegree(tonic, chord);
-//             newDegree.id = "degree" + String(i + 1);
-//             newDegree.innerHTML = degree;
-//         }
-//         if (current.childNodes.length==3) {
-//             const prev = current.childNodes[2];
-//             current.removeChild(prev);
-//         }
-//         if(tonic)
-//             current.appendChild(newDegree);
-//             // panel.appendChild(newDegree);
-//     }
-// }
 
 export function showDegrees(tonic){
     for(let i = 0; i < chords.children.length; i++) {
