@@ -131,7 +131,11 @@ The user is allowed to choose the <b>note</b> and the <b>type</b> of note of eac
 By clicking on the arrow, a drop-down list of options is created and the user can choose only one value in this case.
 
 #### Guitar chord tabs
-Once the complexified chords are outputted, the user can visualize the corresponding guitar chords chart hovering on each output chord box: 
+Once the complexified chords are outputted, the user can visualize the corresponding guitar chords chart hovering on each output chord box:
+<p>
+  <img src = "readmeImgs/guitar.png">
+</p>
+
 ## Conclusions
 We believe that the "Harmonic Complexifier" succeds in its purpouse of guiding a beginning musician in music theory. by encouraging him to evolve and vary using the level of complexity and transformations he likes best.
 There are some aspect that could be improved or added in following implementations, such as increasing the possible sequences to work with and the harmonization of minor keys. Also, it would be a nice addition to differ the musical instruments with which the result can be heard, and visualize the tablature of the outputted chords for those instruments as well.
