@@ -2,7 +2,7 @@
 Advanced Coding Tool and Methodologies & Computer Music Representation and Models - Politecnico di Milano - Music and Acoustic Engineering 2022/2023
 
 <p>
-  <img src = "readmeImgs/GUI_1.png">
+  <img src = "readmeImgs/GUI.png">
 </p>
 
 ## Introduction
@@ -85,6 +85,68 @@ Having obtained the array containing the degrees of the chords, by using the "re
 ### Audio playback
 ### Midi Export
 ### User Interface
+#### CSS Grid layout
+The Graphical User Interface of the Harmonic Complexifier is a grid-based GUI obtained through the use of <b>CSS Grid layout</b>. Thanks to this powerful layout system, a flexibile and responsive layout has been obtained in a more intuitive and easier way. \
+For example, the entire page is based on the following grid: 
+```
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /*six column of 1fr */
+    grid-template-rows: 1fr 3.2fr auto 3fr;
+    grid-column-gap: 0.25em;
+    grid-row-gap: 4%;
+}
+```
+
+#### 3D Button
+A peculiar feature of the Harmonic Complexifier GUI consists in the style of the buttons:
+<p>
+  <img src = "readmeImgs/COMP_BUTT.png">
+  <img src = "readmeImgs/PLAY_BUTT.png">
+  <img src = "readmeImgs/MIDI_BUTT.png">
+</p>
+The 3D style of the buttons has been achieved using the <b>transform</b> property in combination with <b>translate3d()</b> function.
+In particular, within the <b>button.big-button::before</b> selector, the following property is responsible for creating the 3D effect:
+
+```
+transform: translate3d(0, 0.75em, -1em);
+```
+This combination of translation values creates a visual effect where the pseudo-element appears to be slightly raised above the button, adding a sense of depth and a 3D-like appearance.
+
+#### Range Slider
+Another important object which builds up this graphical interface is the input HTML element of the type <b>range</b>. \
+The Harmonic Complexifier provides three sliders which play different role but they all share the same CSS style:
+<p>
+  <img src = "readmeImgs/LEVEL.png">
+  <img src = "readmeImgs/PATTERN.png">
+  <img src = "readmeImgs/SPEED.png">
+</p>
+Each slider is composed by the following elements: <b>value</b>, <b>label</b> and the type <b>range</b> input with the so-called <b>thumb</b> (the small and movable indicator that users can interact with by clicking or dragging to set a specific value on the slider). These elements are wrapped together in a container for a better positioning of each entire slider. 
+
+#### Input chords
+The user is allowed to choose the <b>note</b> and the <b>type</b> of note of each input chord by the means of two HTML <b>select</b> element:
+<p>
+  <img src = "readmeImgs/select.png">
+</p>
+
+By clicking on the arrow, a drop-down list of options is created and the user can choose only one value in this case. \
+The input chords can be also selected using the <b>Preset menu</b>:
+
+<p>
+  <img src = "readmeImgs/preset.png">
+</p>
+
+#### Output chords
+Each output chord box contains two fundamental elements: the output chord <b>name</b> and the output chord <b>duration symbol</b>. \
+For example:
+<p>
+  <img src = "readmeImgs/output.png">
+</p>
+
+Last but not least, once the complexified chords are outputted, the user can visualize the corresponding guitar chords chart hovering on each output chord box:
+<p>
+  <img src = "readmeImgs/guitar.png">
+</p>
 
 ## Conclusions
 We believe that the "Harmonic Complexifier" succeds in its purpouse of guiding a beginning musician in music theory. by encouraging him to evolve and vary using the level of complexity and transformations he likes best.
