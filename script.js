@@ -7,9 +7,6 @@ import {play, stop} from "./Resources/audio.js";
 import {pop} from "./Resources/particleExplosion.js";
 import {midiExport} from "./Resources/midiExport.js";
 
-
-
-//window.addEventListener("load", addChords, false);
 addChords();
 addPreset();
 rangeValue();
@@ -17,14 +14,11 @@ rangeValue2();
 rangeValue3();
 setTimeout(index1, 2110);
 
-// rangeValue("complexLvl", "compLev");
+
 
 let newChords = []
 
 let complex = document.getElementById("complexButton");
-//let playIn = document.getElementById("playIn");
-//let playOut = document.getElementById("playOut");
-//let pause = document.getElementById("stop");
 let playbackSpeed = document.getElementById("speed");
 let pattern = document.getElementById("pattern");
 let midiButton = document.getElementById("midiButton");
@@ -34,6 +28,36 @@ let playbtn = document.getElementById("playIn");
 let playbtnout = document.getElementById("playOut");
 let isplaying = false;
 let isplaying2 = false;
+let bpm = 60
+
+function applyComplexify(){
+    let lvl = document.getElementById("complexLvl").value;
+    newChords=complexify(lvl);
+}
+
+function playin(){
+    play(pattern.value,updateValues(),bpm*playbackSpeed.value)
+}
+
+function playout(){
+    if(!newChords.length)
+        return
+    play(pattern.value,newChords,bpm*playbackSpeed.value)
+
+}
+
+function exportMidi(){
+    if(!newChords.length)
+        return
+    const url = midiExport(newChords)
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'complexified_progression_lvl' + document.getElementById("complexLvl").value +'.mid';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
 
 function ready(){
     for(let i = 1; i < 5; i++){
@@ -72,42 +96,7 @@ function cambia2(){
 }
 playbtnout.onclick = cambia2;
 
-midiButton.onclick=exportMidi;
-
 complex.onclick=applyComplexify;
 complex.addEventListener('click', pop);
 
-
-
-/**TO DO: add bpm**/
-let bpm = 60
-
-function applyComplexify(){
-    let lvl = document.getElementById("complexLvl").value;
-    newChords=complexify(lvl);
-}
-
-function playin(){
-    play(pattern.value,updateValues(),bpm*playbackSpeed.value)
-}
-
-function playout(){
-    if(!newChords.length)
-        return
-    play(pattern.value,newChords,bpm*playbackSpeed.value)
-
-}
-
-function exportMidi(){
-    if(!newChords.length)
-        return
-    const url = midiExport(newChords)
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'complexified_progression_lvl' + document.getElementById("complexLvl").value +'.mid';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-}
-
-
+midiButton.onclick=exportMidi;

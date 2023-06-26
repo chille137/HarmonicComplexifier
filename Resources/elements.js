@@ -3,8 +3,6 @@ import {findDegree, romToInt} from "./functions.js"
 
 
 let chords = document.getElementById("chords");
-// let grid = document.getElementById("grid");
-// let elem = document.querySelector('input[type="range"]');
 let preset = document.getElementById("first");
 let preset1 = document.getElementById("preset_box");
 let allTypes = triads.concat(quadriads);
@@ -167,7 +165,6 @@ export function showChords(chords){
         display.style.gridTemplateColumns = "repeat(7,1fr)";
     if(children==8)
         display.style.gridTemplateColumns = "repeat(8,1fr)";
-
 
 
     const play_out = document.getElementById("play_out_cont")
