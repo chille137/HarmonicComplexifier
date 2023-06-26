@@ -111,7 +111,7 @@ In particular, within the <b>button.big-button::before</b> selector, the followi
 ```
 transform: translate3d(0, 0.75em, -1em);
 ```
-This combination of translation values creates a visual effect where the pseudo-element appears to be slightly raised above the button, adding a sense of depth and a 3D-like appearance.
+This combination of translation values creates a visual effect where the pseudo-element <b>::before</b> adds a sense of depth and a 3D-like appearance to the button.
 
 #### Range Slider
 Another important object which builds up this graphical interface is the input HTML element of the type <b>range</b>. \
@@ -143,7 +143,7 @@ For example:
   <img src = "readmeImgs/output.png">
 </p>
 
-Last but not least, once the complexified chords are outputted, the user can visualize the corresponding guitar chords chart hovering on each output chord box:
+Last but not least, once the complexified chords are outputted, the user can visualize the corresponding guitar chord chart hovering on each output chord box:
 <p>
   <img src = "readmeImgs/guitar.png">
 </p>
