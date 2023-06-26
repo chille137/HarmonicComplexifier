@@ -2,7 +2,7 @@
 Advanced Coding Tool and Methodologies & Computer Music Representation and Models - Politecnico di Milano - Music and Acoustic Engineering 2022/2023
 
 <p>
-  <img src = "readmeImgs/GUI_1.png">
+  <img src = "readmeImgs/GUI.png">
 </p>
 
 ## Introduction
@@ -123,14 +123,18 @@ The Harmonic Complexifier provides three sliders which play different role but t
 </p>
 Each slider is composed by the following elements: <b>value</b>, <b>label</b> and the type <b>range</b> input with the so-called <b>thumb</b> (the small and movable indicator that users can interact with by clicking or dragging to set a specific value on the slider). These elements are wrapped together in a container for a better positioning of each entire slider. 
 
-#### Selection menu
+#### Input chords
 The user is allowed to choose the <b>note</b> and the <b>type</b> of note of each input chord by the means of two HTML <b>select</b> element:
 <p>
   <img src = "readmeImgs/select.png">
 </p>
 By clicking on the arrow, a drop-down list of options is created and the user can choose only one value in this case.
+The input chords can be also selected using the <b>Preset menu</b>:
+<p>
+  <img src = "readmeImgs/select.png">
+</p>
 
-#### Guitar chord tabs
+#### Output chords
 Once the complexified chords are outputted, the user can visualize the corresponding guitar chords chart hovering on each output chord box:
 <p>
   <img src = "readmeImgs/guitar.png">
