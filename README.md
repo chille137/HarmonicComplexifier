@@ -128,14 +128,20 @@ The user is allowed to choose the <b>note</b> and the <b>type</b> of note of eac
 <p>
   <img src = "readmeImgs/select.png">
 </p>
-By clicking on the arrow, a drop-down list of options is created and the user can choose only one value in this case.
+
+By clicking on the arrow, a drop-down list of options is created and the user can choose only one value in this case. \
 The input chords can be also selected using the <b>Preset menu</b>:
+
 <p>
-  <img src = "readmeImgs/select.png">
+  <img src = "readmeImgs/preset.png">
 </p>
 
 #### Output chords
-Once the complexified chords are outputted, the user can visualize the corresponding guitar chords chart hovering on each output chord box:
+Each output chord box contains two fundamental elements: the output chord name and the output chord duration symbol
+<p>
+  <img src = "readmeImgs/output.png">
+</p>
+In addition, once the complexified chords are outputted, the user can visualize the corresponding guitar chords chart hovering on each output chord box:
 <p>
   <img src = "readmeImgs/guitar.png">
 </p>
