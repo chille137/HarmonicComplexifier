@@ -85,6 +85,7 @@ Having obtained the array containing the degrees of the chords, by using the "re
 ### Audio playback
 ### Midi Export
 ### User Interface
+#### CSS Grid layout
 The Graphical User Interface of the Harmonic Complexifier is a grid-based GUI obtained through the use of <b>CSS Grid layout</b>. Thanks to this powerful layout system, a flexibile and responsive layout has been obtained in a more intuitive and easier way. \
 For example, the entire page is based on the following grid: 
 ```
@@ -96,6 +97,8 @@ For example, the entire page is based on the following grid:
     grid-row-gap: 4%;
 }
 ```
+
+#### 3D Button
 A peculiar feature of the Harmonic Complexifier GUI consists in the style of the buttons:
 <p>
   <img src = "readmeImgs/COMP_BUTT.png">
@@ -110,6 +113,7 @@ transform: translate3d(0, 0.75em, -1em);
 ```
 This combination of translation values creates a visual effect where the pseudo-element appears to be slightly raised above the button, adding a sense of depth and a 3D-like appearance.
 
+#### Range Slider
 Another important object which builds up this graphical interface is the input HTML element of the type <b>range</b>. \
 The Harmonic Complexifier provides three sliders which play different role but they all share the same CSS style:
 <p>
@@ -118,6 +122,12 @@ The Harmonic Complexifier provides three sliders which play different role but t
   <img src = "readmeImgs/SPEED.png">
 </p>
 Each slider is composed by the following elements: <b>value</b>, <b>label</b> and the type <b>range</b> input with the so-called <b>thumb</b> (the small and movable indicator that users can interact with by clicking or dragging to set a specific value on the slider). These elements are wrapped together in a container for a better positioning of each entire slider. 
+
+#### Selection menu
+The user is allowed to choose the <b>note</b> and the <b>type</b> of note of each input chord by the means of two HTML <b>select</b> element:
+<p>
+  <img src = "readmeImgs/select.png">
+</p>
 
 ## Conclusions
 We believe that the "Harmonic Complexifier" succeds in its purpouse of guiding a beginning musician in music theory. by encouraging him to evolve and vary using the level of complexity and transformations he likes best.
