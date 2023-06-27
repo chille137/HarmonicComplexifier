@@ -44,9 +44,13 @@ export function seqFinder(degrees_param){
 
     if(degs.includes(notFound)) {
         let j = degs.indexOf(notFound)
-        if(degs[(j-1)%4]!=degrees[0])
-            return false
-        degs.splice(j,1)
+        if (!j)
+            j = 4;
+        console.log(degs[j-1])
+        if(degs[j-1]!=degrees[0])
+        {console.log("out");
+            return false}
+        degs.splice(j%4,1)
         seq=seq.slice(0,4)
         for(let i = 0; i<seq.length; i++)
             seq[i]=seq[i].slice(1,4)

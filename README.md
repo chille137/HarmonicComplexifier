@@ -149,7 +149,7 @@ Last but not least, once the complexified chords are outputted, the user can vis
 </p>
 
 ## Conclusions
-We believe that the "Harmonic Complexifier" succeds in its purpouse of guiding a beginning musician in music theory. by encouraging him to evolve and vary using the level of complexity and transformations he likes best.
+We believe that the "Harmonic Complexifier" succeds in its purpouse of guiding a beginning musician in music theory, by encouraging him to evolve and vary using the level of complexity and transformations he likes best.
 There are some aspect that could be improved or added in following implementations, such as increasing the possible sequences to work with and the harmonization of minor keys. Also, it would be a nice addition to differ the musical instruments with which the result can be heard, and visualize the tablature of the outputted chords for those instruments as well.
 
 
