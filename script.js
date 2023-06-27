@@ -5,6 +5,7 @@ import {play, stop} from "./Resources/audio.js";
 import {pop} from "./Resources/particleExplosion.js";
 import {midiExport} from "./Resources/midiExport.js";
 
+
 addChords();
 addPreset();
 rangeValue();
@@ -13,11 +14,8 @@ rangeValue3();
 setTimeout(index1, 2110);
 
 
-
-
-
 let newChords = []
-
+//display the GUI
 let complex = document.getElementById("complexButton");
 let playbackSpeed = document.getElementById("speed");
 let pattern = document.getElementById("pattern");
@@ -30,16 +28,16 @@ let isplaying = false;
 let isplaying2 = false;
 let bpm = 60
 
-function handle(){
+// hides the notes explosion if the chords aren't set
+export function handle(){
     if(ready()){
         complex.addEventListener('click', pop);
         return
     }
     complex.removeEventListener('click', pop);
 }
-setInterval(handle,1000)
 
-
+// checks if all the chords are set to a value
 function ready(){
     for(let i = 1; i < 5; i++){
         let current = document.getElementById("chord" + i);
@@ -49,6 +47,7 @@ function ready(){
     return true;
 }
 
+//
 function applyComplexify(){
     let lvl = document.getElementById("complexLvl").value;
     for(let i = 1; i < 5; i++){

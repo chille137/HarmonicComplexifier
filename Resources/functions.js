@@ -1,6 +1,6 @@
 import {allNotes, degrees, scaleBuilder, sequences} from "./notes&chords.js";
 
-/** given a scale and a chord, returns if the chord is contained in that scale**/
+// given a scale and a chord, returns if the chord is contained in that scale
 export function containsChord(scale,chord){
     let note = chord.note;
     let type = chord.type;
@@ -12,7 +12,7 @@ export function containsChord(scale,chord){
     }
     return false;
 }
-/**given the tonic of a scale and a chord, returns the degree of the chord if possible**/
+// given the tonic of a scale and a chord, returns the degree of the chord if possible
 export function findDegree(tonic,chord){
     if (!tonic)
         return "chord not in scale"
@@ -28,6 +28,7 @@ export function findDegree(tonic,chord){
     return "chord not in scale";
 }
 
+// given the tonic and an array of chords, returns an array of the degrees of each chord
 export function retDegrees(tonic,chords){
     let deg=[];
     for (let i = 0; i < chords.length; i++)
@@ -35,89 +36,8 @@ export function retDegrees(tonic,chords){
     return deg;
 }
 
-export function seqFinder(degrees_param) {
-    let degs = degrees_param;
-    let notFound = "chord not in scale"
-    let seq = sequences.map((x)=>x);
-    let resized = false;
-    if (degs.includes(notFound)) {
-        let j = degs.indexOf(notFound);
-        if (j != 0 && j != (degs.length - 1))
-            return false
-        degs.splice(j, 1);
-        resized = true;
-    }
-    else
-        if(degs[0]!=degrees[0]) {
-            if(degs[degs.length-1]==degs[degs.length-2]) {
-                degs = degs.slice(0, degs.length-1)
-                resized=true;
-            }
-            else
-                {
-                degs = degs.slice(1, degs.length)
-                resized = true
-                }
-        }
-
-    //4 chords
-    let seqCounter = 0;
-    if (!resized) {
-        for (let i = 0; i < seq.length; i++) {
-            seqCounter = 0
-            for (let j = 0; j < degs.length; j++) {
-                if (degs[j] == seq[i][j])
-                    seqCounter += 1;
-            }
-            if (seqCounter == 4)
-                return seq[i]
-        }
-    }
-
-    for (let i = 0; i < seq.length; i++)
-        seq[i] = seq[i].slice(1, seq[i].length);
-
-    for (let i = 0; i < seq.length; i++) {
-        seqCounter=0
-        for (let j = 0; j < degs.length; j++) {
-            if (degs[j] == seq[i][j])
-                seqCounter += 1;
-        }
-        if (seqCounter == 3)
-            return seq[i]
-    }
-    return false
-
-    /*if(!resized)
-        for(let i = 0; i<seq.length; i++){
-            seqCounter=0;
-            for(let j = 0 ; j<(degs.length-1); j++){
-                if(degs[j]==seq[i][j])
-                    seqCounter+=1;
-            }
-            if (seqCounter==3)
-                return sequences[i]
-            seqCounter=0;
-            for(let j = 0 ; j<(degs.length-1); j++){
-                if(degs[j+1]==seq[i][j])
-                    seqCounter+=1;
-            }
-            if (seqCounter==3)
-                return sequences[i]
-        }
-    else
-        for(let i=0; i<seq.length; i++){
-            seqCounter=0;
-            for(let j = 0 ; j<degs.length; j++){
-                if(degs[j]==seq[i][j])
-                    seqCounter+=1;
-            }
-            if (seqCounter==3)
-                return sequences[i].slice(1,sequences[i].length);
-        }*/
-}
-
-export function newSeqFinder(degrees_param){
+// given an array of chord degrees, finds if the sequence is one among the ones used by the software
+export function seqFinder(degrees_param){
     let degs = [...degrees_param];
     let notFound = "chord not in scale"
     let seq = JSON.parse(JSON.stringify(sequences));
@@ -171,7 +91,7 @@ export function newSeqFinder(degrees_param){
     return false
 }
 
-/** find the key of the four chord progression **/
+// finds the key of the four chord progression
 export function keyFinder(){
     let chords = updateValues();
     let chords_in = 0;
@@ -213,6 +133,7 @@ export function keyFinder(){
         return false
 }
 
+// converts the degrees from roman numbers to integers
 export function romToInt(deg){
     switch(deg) {
         case "I": return 0;
@@ -226,6 +147,7 @@ export function romToInt(deg){
     }
 }
 
+// reads the values of the 4 chords and returns an array of notes, types and duration
 export function updateValues(){
     let chord1v_new = document.getElementById("chord1").childNodes[0].value;
     let chord2v_new = document.getElementById("chord2").childNodes[0].value;
@@ -237,6 +159,6 @@ export function updateValues(){
     let chord4t_new = document.getElementById("chord4").childNodes[1].value;
     return [{note: chord1v_new, type: chord1t_new, duration: 4},
             {note: chord2v_new, type: chord2t_new, duration: 4},
-            {note: chord3v_new,type: chord3t_new, duration: 4},
+            {note: chord3v_new, type: chord3t_new, duration: 4},
             {note: chord4v_new, type: chord4t_new, duration: 4}]
 }

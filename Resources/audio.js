@@ -2,6 +2,7 @@ let isPlaying=false;
 let source = [];
 let seq = null;
 
+Howler.autoUnlock = false;
 
 export function play(pattern, chords,bpm){
     if(isPlaying)

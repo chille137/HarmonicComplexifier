@@ -1,5 +1,6 @@
 import {allNotes, triads, quadriads, sequences, scaleBuilder} from "./notes&chords.js";
 import {findDegree, romToInt} from "./functions.js"
+import {handle} from "../script.js";
 
 
 let chords = document.getElementById("chords");
@@ -46,6 +47,8 @@ export function addPreset(){
     preset_box.appendChild(seqSel);
     noteSel.addEventListener("change",checkPreset);
     seqSel.addEventListener("change",checkPreset);
+    noteSel.addEventListener("change",handle);
+    seqSel.addEventListener("change",handle);
 }
 
 function checkPreset(){
@@ -105,6 +108,8 @@ export function addChords(){
             option.text = allTypes[j];
             typeSel.appendChild(option);
         }
+        noteSel.addEventListener("change",handle);
+        typeSel.addEventListener("change",handle);
         c.appendChild(noteSel);
         c.appendChild(typeSel);
         newDiv.appendChild(c);
