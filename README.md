@@ -105,13 +105,21 @@ A peculiar feature of the Harmonic Complexifier GUI consists in the style of the
   <img src = "readmeImgs/PLAY_BUTT.png">
   <img src = "readmeImgs/MIDI_BUTT.png">
 </p>
-The 3D style of the buttons has been achieved using the <b>transform</b> property in combination with <b>translate3d()</b> function.
-In particular, within the <b>button.big-button::before</b> selector, the following property is responsible for creating the 3D effect:
+The 3D style of the buttons has been achieved thanks to the pseudo-element <b>::before</b> which creates a layered effect adding a sense of depth and a 3D-like appearance to the button. In particular, within <b>.big-button::before</b>, the <b>transform</b> property in combination with <b>translate3d()</b> function is responsible for creating the 3D effect. In addiction, by applying various background colors, border radius, and box shadow to the pseudo-element, the 3D effect of the button is enhanced.
 
 ```
-transform: translate3d(0, 0.75em, -1em);
+.big-button::before {
+    position: absolute;
+    content: "";
+    width: 100%; height: 100%;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--colorShadeC);
+    border-radius: inherit;
+    box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.75em 0 0 var(--colorShadeA);
+    transform: translate3d(0, 0.75em, -1em);
+    transition: all 175ms cubic-bezier(0, 0, 1, 1);
+}
 ```
-This combination of translation values creates a visual effect where the pseudo-element <b>::before</b> adds a sense of depth and a 3D-like appearance to the button.
 
 #### Range Slider
 Another important object which builds up this graphical interface is the input HTML element of the type <b>range</b>. \
@@ -124,13 +132,13 @@ The Harmonic Complexifier provides three sliders which play different role but t
 Each slider is composed by the following elements: <b>value</b>, <b>label</b> and the type <b>range</b> input with the so-called <b>thumb</b> (the small and movable indicator that users can interact with by clicking or dragging to set a specific value on the slider). These elements are wrapped together in a container for a better positioning of each entire slider. 
 
 #### Input chords
-The user is allowed to choose the <b>note</b> and the <b>type</b> of note of each input chord by the means of two HTML <b>select</b> element:
+The user is allowed to choose the <b>note</b> and the <b>type</b> of note of each input chord by the means of two HTML <b>select</b> element; \
+by clicking on the arrow, a drop-down list of options is created and the user can choose only one value in this case.
 <p>
   <img src = "readmeImgs/select.png">
 </p>
 
-By clicking on the arrow, a drop-down list of options is created and the user can choose only one value in this case. \
-The input chords can be also selected using the <b>Preset menu</b>:
+The input chords can be also selected using the <b>Preset menu</b> which contains two other HTML <b>select</b> elements, the first one for the notes and the second one for the sequences:
 
 <p>
   <img src = "readmeImgs/preset.png">
