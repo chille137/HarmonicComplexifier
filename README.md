@@ -129,7 +129,11 @@ The Harmonic Complexifier provides three sliders which play different role but t
   <img src = "readmeImgs/PATTERN.png">
   <img src = "readmeImgs/SPEED.png">
 </p>
-Each slider is composed by the following elements: <b>value</b>, <b>label</b> and the type <b>range</b> input with the so-called <b>thumb</b> (the small and movable indicator that users can interact with by clicking or dragging to set a specific value on the slider). These elements are wrapped together in a container for a better positioning of each entire slider. 
+Each slider is composed by the following elements: <b>value</b>, <b>label</b> and the type <b>range</b> input with the so-called <b>thumb</b> (the small and movable indicator that users can interact with by clicking or dragging to set a specific value on the slider):
+<p>
+  <img src = "readmeImgs/slider.png">
+</p>
+These elements are wrapped together in a container for a better positioning of each entire slider. 
 
 #### Input chords
 The user is allowed to choose the <b>note</b> and the <b>type</b> of note of each input chord by the means of two HTML <b>select</b> element; \
