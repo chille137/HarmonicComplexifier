@@ -11,7 +11,6 @@ function durationToTicks(duration) {
 }
 
 // Create a MIDI file from the chord sequence
-
 export function midiExport(sequence){
     let currentTime=0;
     const track = new MidiWriter.Track();

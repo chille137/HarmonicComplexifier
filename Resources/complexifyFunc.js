@@ -2,6 +2,7 @@ import {keyFinder, seqFinder, retDegrees, romToInt, updateValues} from "./functi
 import {showChords, showDegrees, showScale} from "./elements.js";
 import {allNotes, degrees, quadriads, scaleBuilder, triads} from "./notes&chords.js";
 
+//complexifies the sequence, according to the level selected by the user
 export function complexify(lvl){
     let tonic = keyFinder();
     showScale(tonic);
@@ -10,26 +11,19 @@ export function complexify(lvl){
     showDegrees(tonic);
     if(!tonic){
         newChords=updateValues();
-        // showSequence(seq, "");
         showChords(newChords);
         return newChords;
     }
     let degs = retDegrees(tonic,updateValues());
-    //seq = seqFinder(degs);
     seq = seqFinder(degs);
     if(!seq) {
         newChords = updateValues()
-        // showSequence(seq, "");
         showChords(newChords);
         return newChords;
     }
 
-
-    // showSequence(seq);
-
     if(lvl) {
-        //newChords = triadsToQuadriads(tonic, seq);
-        newChords = newTriadsToQuadriads(tonic,seq);
+        newChords = triadsToQuadriads(tonic,seq);
         lvl-=1;
     }
     if(lvl) {
@@ -52,48 +46,8 @@ export function complexify(lvl){
 
 }
 
-/*function triadsToQuadriads(tonic,seq){
-    let chords = updateValues();
-    let newChords = updateValues();
-    let start = 0;
-    let finish = chords.length;
-    let degs = retDegrees(tonic,chords)
-
-    if (degs[0]!=seq[0]) {
-        degs = degs.slice(1, degs.length);
-        degs = [degrees[0]].concat(degs)
-        newChords = newChords.slice(1, newChords.length)
-        newChords = [scaleBuilder(tonic)[0]].concat(newChords)
-        newChords[0].duration=4
-    }
-    else {
-        if (seq.length == 3)
-            seq = [degrees[0]].concat(seq)
-        if (degs[degs.length - 1] != seq[seq.length - 1] || degs[degs.length - 1] == degs[degs.length - 2]) {
-            degs = degs.slice(0, degs.length - 1);
-            degs = [degrees[0]].concat(degs)
-            newChords = newChords.slice(0, newChords.length - 1)
-            newChords = [scaleBuilder(tonic)[0]].concat(newChords)
-            newChords[0].duration = 4
-        }
-    }
-
-
-    let quadriads = modes[0].quadriads;
-    let degsInt = [];
-
-    for (let i = 0; i < degs.length; i++)
-        degsInt[i]=romToInt(degs[i])
-    for (let i = start; i < finish; i++)
-        if (triads.includes(newChords[i].type))
-            if(start==0)
-                newChords[i].type=quadriads[degsInt[i]];
-            else
-                newChords[i].type=quadriads[degsInt[i-1]];
-    return newChords;
-}*/
-
-function newTriadsToQuadriads(tonic,seq){
+//implements the triads to quadriads substitution
+function triadsToQuadriads(tonic,seq){
     let scale = scaleBuilder(tonic)
     let newChords = [];
 
@@ -111,18 +65,19 @@ function newTriadsToQuadriads(tonic,seq){
     return newChords;
 }
 
+//implements the relative minor substitution
 function relativeMinor(tonic,chords,seq){
     if(romToInt(seq[1])==5)
         return chords
     let minor7 = scaleBuilder(tonic)[11]
     minor7.duration=2;
-    //let newChords =  [...chords];
     let newChords = JSON.parse(JSON.stringify(chords));
     newChords.splice(1, 0, minor7)
     newChords[0].duration=2;
     return newChords
 }
 
+//implements the secondary dominant substitution
 function secondaryDominant(tonic,chords,seq){
     if(seq.length==3)
         seq=[degrees[0]].concat(seq)
@@ -157,6 +112,7 @@ function secondaryDominant(tonic,chords,seq){
     return newChords
 }
 
+//implements the parallel key substitution
 function parallelKey(tonic,chords){
     let scale = scaleBuilder(tonic);
     let n = scale[7].note
@@ -171,6 +127,7 @@ function parallelKey(tonic,chords){
     return newChords
 }
 
+//implements the triton substitution
 function tritone(sequence,chords){
     let newChords =  JSON.parse(JSON.stringify(chords));
     let i=2;
