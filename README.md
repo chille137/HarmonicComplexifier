@@ -195,60 +195,24 @@ To do so, we've used the [midi-writer-js](https://github.com/grimmdude/MidiWrite
 
 The implementation is straight-forward: we extract the notes composing each chord of the outputted sequence, create a note Event of the length of the chord and add it to the midi track.
 
-Once all the chords have been added to the midi track, an download URL is generated, allowing the user to download the track.
-
-This implementation can be found in the [midiExport.js](Resources/midiExport.js) file.
+Once all the chords have been added to the midi track, a download URL is generated, allowing the user to download the track.
 
 Here's a snippet:
 ```
-export function midiExport(sequence){
-
-    //create a new midi track starting from 0
-    let currentTime=0;
-    const track = new MidiWriter.Track();
-
-    //Extract each note from the chords of the output
-    for (let j = 0; j < sequence.length; j++) {
-        let chord=sequence[j]
-        const chordNotes = chordBuilder(chord.note, chord.type);
-        
-        let prevNote = 48
-       
-        for (let i = 0; i < chordNotes.length; i++){
-            let note = chordNotes[i]
-            
-            //Conversion to midi. 48 is the midi number of the central C (C3)
-            let midi = allNotes.indexOf(note)+48
-            
-            //In order to avoid weird chord voicing, all the notes are placed above the central C
-            if (prevNote > midi)
-                midi +=12
-            
-            prevNote = midi
-            chordNotes[i]=midi
-
-        }
-        
-        //Create a noteEvent and add it to the midi track
-        let ticks =  durationToTicks(chord.duration);
-        const noteEvent = new MidiWriter.NoteEvent({
-            pitch: chordNotes,
-            duration: ticks,
-            velocity: 100
-        });
-        track.addEvent(noteEvent, currentTime);
-        currentTime+=chord.duration
-    }
-    const writer = new MidiWriter.Writer([track]);
-
-    // Generate a download link for the MIDI file
-    
-    const byteArray = writer.buildFile();
-    const blob = new Blob([byteArray], { type: 'audio/midi' });
-    return URL.createObjectURL(blob);
+//exports to midi the outputted sequence and downloads it 
+function exportMidi(){
+    if(!newChords.length)
+        return
+    const url = midiExport(newChords)
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'complexified_progression_lvl' + document.getElementById("complexLvl").value +'.mid';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }
-
 ```
+The implementation of midiExport can be found inside the [midiExport.js](Resources/midiExport.js) file.
 ### User Interface
 #### CSS Grid layout
 The Graphical User Interface of the Harmonic Complexifier is a grid-based GUI obtained through the use of <b>CSS Grid layout</b>. Thanks to this powerful layout system, a flexibile and responsive layout has been obtained in a more intuitive and easier way. \

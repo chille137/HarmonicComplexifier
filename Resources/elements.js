@@ -10,7 +10,7 @@ let allTypes = triads.concat(quadriads);
 
 
 
-
+//creates the preset input option
 export function addPreset(){
     const preset_box = document.getElementById("first");
     const noteSel = document.createElement("select");
@@ -51,6 +51,8 @@ export function addPreset(){
     seqSel.addEventListener("change",handle);
 }
 
+//check if both the note and sequence of the preset have been set.
+//Updates the values of the chords in input
 function checkPreset(){
     const note = preset.childNodes[0].value;
     const sequence = preset.childNodes[1].value;
@@ -69,7 +71,7 @@ function checkPreset(){
     }
 }
 
-
+//adds the chords square inputs
 export function addChords(){
     for(let i=1;i<5;i++) {
         const newDiv = document.createElement("div");
@@ -117,6 +119,7 @@ export function addChords(){
     }
 }
 
+//shows the output chords
 export function showChords(chords){
     const display = document.getElementById("compDisplay");
     while (display.firstChild) {
@@ -181,6 +184,7 @@ export function showChords(chords){
 
 }
 
+//Shows the root of the sequence
 export function showScale(note){
     const newRoot = document.createElement("div");
     newRoot.id="root";
@@ -197,7 +201,7 @@ export function showScale(note){
     display.classList.add("animation");
 }
 
-
+//shows the degree of each chord in input
 export function showDegrees(tonic){
     for(let i = 0; i < chords.children.length; i++) {
         let position = document.getElementById("pos_chord"+String(i+1))
@@ -228,7 +232,7 @@ export function showDegrees(tonic){
 
 
 
-// range slider
+// range slider for the complexity level
 export function rangeValue(){
     let slider = document.getElementById("complexLvl");
     let newValue = slider.value;
@@ -237,6 +241,7 @@ export function rangeValue(){
     slider.addEventListener("input", rangeValue);
 }
 
+//range slider for the speed level
 export function rangeValue2(){
     let slider = document.getElementById("speed");
     let newValue = slider.value;
@@ -245,6 +250,7 @@ export function rangeValue2(){
     slider.addEventListener("input", rangeValue2);
 }
 
+//range slider for patter selection
 export function rangeValue3(){
     let slider = document.getElementById("pattern");
     let newValue = slider.value;

@@ -4,6 +4,7 @@ let seq = null;
 
 Howler.autoUnlock = false;
 
+//plays the audio according to the pattern and the speed chosen in the GUI
 export function play(pattern, chords,bpm){
     if(isPlaying)
         return
@@ -17,12 +18,15 @@ export function play(pattern, chords,bpm){
         sequencer(sound,0,bpm)
 
 }
+
+//stops the loop
 export function stop(){
     Howler.stop()
     clearTimeout(seq)
     isPlaying=false;
 }
 
+//builds the audio source to be played by the sequencer, composing together the wav audio files
 function buildSource(pattern, chords){
     let sources = []
     let begin = 'AudioFiles/Pattern'+String(pattern)+'/'
@@ -45,6 +49,7 @@ function buildSource(pattern, chords){
     return sources
 }
 
+//builds an "howl" object for each of the chords in the built source
 function buildSound(source){
     let sound = []
     for(let i=0; i < source.length; i++){
@@ -53,6 +58,7 @@ function buildSound(source){
     return sound;
 }
 
+//loops the chord sequence, playing back each chord with its given speed and duration.
 function sequencer(audio,i,bpm){
     Howler.stop()
     if(!isPlaying)

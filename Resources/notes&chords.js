@@ -1,19 +1,8 @@
-/**Create Notes, Chords and degrees ref **/
+// Create Notes, Chords and degrees ref
 
 export const allNotes = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"]
-/** piano keys **/
-export const whiteKeysENG = ["C","","D","","E","F","","G","","A","","B"]
-export const blackKeysENG ={
-    sharps: ["","C#","","D#","","","F#","","G#","","A#",""],
-    flats:  ["","Db","","Eb","","","Gb","","Ab","","Bb",""]
-}
-export const whiteKeysLAT = ["DO","","RE","","MI","FA","","SOL","","LA","","SI"]
-export const blackKeysLAT ={
-    sharps: ["","DO#","","RE#","","","FA#","","SOL#","","LA#",""],
-    flats:  ["","REb","","MIb","","","SOLb","","LAb","","SIb",""]
-}
 
-/** notation for grades and chords**/
+//notation for grades and chords
 export const degrees = ["I","II","III","IV","V","VI","VII"]
 export const triads = ["M", "m","dim"]
 export const quadriads = ["Maj7","7","m7","dim7"]
@@ -28,13 +17,7 @@ export const sequences = [
                             [degrees[0],degrees[4],degrees[5],degrees[3]]
                             ]
 
-
-/**  accepted chords notation **/
-const note_notationENG = /^[A-G][#b]?$/;
-const note_notationLAT = /^(DO|RE|MI|FA|SOL|LA|SI|)[#b]?$/
-const type_notation = /^(m|dim|Maj7|min7|7|dim7)?$/;
-
-/** define the degrees used for possible chord shapes **/
+//define the degrees used for possible chord shapes
 export const chordTypes=[
     {
         name: 'M',
@@ -66,7 +49,7 @@ export const chordTypes=[
     }
 ]
 
-/** modes definition **/
+// modes definition
 export const modes = [{
     name: 'Ionian',
     notes: [0,2,4,5,7,9,11],
@@ -74,7 +57,7 @@ export const modes = [{
     quadriads: ["Maj7","m7","m7","Maj7","7","m7","dim7"]
 }];
 
-/** given the root and the type of chord, returns the notes to build the desired chord**/
+// given the root and the type of chord, returns the notes to build the desired chord
 export function chordBuilder(note,type) {
     let notes = [];
     if (!allNotes.includes(note)) {
@@ -91,7 +74,7 @@ export function chordBuilder(note,type) {
     return notes;
 }
 
-/** given the root note, creates the chords that are present in that major scale**/
+// given the root note, creates the chords that are present in that major scale
 export function scaleBuilder(note) {
     let dorian = modes[0];
     let notes = [];

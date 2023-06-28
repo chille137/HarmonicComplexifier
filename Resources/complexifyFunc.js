@@ -2,6 +2,7 @@ import {keyFinder, seqFinder, retDegrees, romToInt, updateValues} from "./functi
 import {showChords, showDegrees, showScale} from "./elements.js";
 import {allNotes, degrees, quadriads, scaleBuilder, triads} from "./notes&chords.js";
 
+//complexifies the sequence, according to the level selected by the user
 export function complexify(lvl){
     let tonic = keyFinder();
     showScale(tonic);
@@ -20,9 +21,6 @@ export function complexify(lvl){
         showChords(newChords);
         return newChords;
     }
-
-
-    // showSequence(seq);
 
     if(lvl) {
         newChords = triadsToQuadriads(tonic,seq);
@@ -48,6 +46,7 @@ export function complexify(lvl){
 
 }
 
+//implements the triads to quadriads substitution
 function triadsToQuadriads(tonic,seq){
     let scale = scaleBuilder(tonic)
     let newChords = [];
@@ -66,6 +65,7 @@ function triadsToQuadriads(tonic,seq){
     return newChords;
 }
 
+//implements the relative minor substitution
 function relativeMinor(tonic,chords,seq){
     if(romToInt(seq[1])==5)
         return chords
@@ -77,6 +77,7 @@ function relativeMinor(tonic,chords,seq){
     return newChords
 }
 
+//implements the secondary dominant substitution
 function secondaryDominant(tonic,chords,seq){
     if(seq.length==3)
         seq=[degrees[0]].concat(seq)
@@ -111,6 +112,7 @@ function secondaryDominant(tonic,chords,seq){
     return newChords
 }
 
+//implements the parallel key substitution
 function parallelKey(tonic,chords){
     let scale = scaleBuilder(tonic);
     let n = scale[7].note
@@ -125,6 +127,7 @@ function parallelKey(tonic,chords){
     return newChords
 }
 
+//implements the triton substitution
 function tritone(sequence,chords){
     let newChords =  JSON.parse(JSON.stringify(chords));
     let i=2;

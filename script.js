@@ -5,7 +5,7 @@ import {play, stop} from "./Resources/audio.js";
 import {pop} from "./Resources/particleExplosion.js";
 import {midiExport} from "./Resources/midiExport.js";
 
-
+//display the GUI
 addChords();
 addPreset();
 rangeValue();
@@ -13,9 +13,8 @@ rangeValue2();
 rangeValue3();
 setTimeout(index1, 2110);
 
-
+//create variables for gui elements and audio playback
 let newChords = []
-//display the GUI
 let complex = document.getElementById("complexButton");
 let playbackSpeed = document.getElementById("speed");
 let pattern = document.getElementById("pattern");
@@ -47,7 +46,7 @@ function ready(){
     return true;
 }
 
-//
+//applies the complexify function, works only if all the chords have been set
 function applyComplexify(){
     let lvl = document.getElementById("complexLvl").value;
     for(let i = 1; i < 5; i++){
@@ -60,10 +59,12 @@ function applyComplexify(){
     newChords=complexify(lvl);
 }
 
+//play the inputted sequence
 function playin(){
     play(pattern.value, updateValues(), bpm * playbackSpeed.value);
 }
 
+//play the outputted sequence
 function playout(){
     if(!newChords.length)
         return
@@ -71,6 +72,7 @@ function playout(){
 
 }
 
+//exports to midi the outputted sequence and downloads it
 function exportMidi(){
     if(!newChords.length)
         return
