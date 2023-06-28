@@ -122,16 +122,19 @@ The 3D style of the buttons has been achieved thanks to the pseudo-element <b>::
 ```
 
 #### Range Slider
-Another important object which builds up this graphical interface is the input HTML element of the type <b>range</b>. \
+Another important object which builds up this graphical interface is the HTML input element of the type <b>range</b>. \
 The Harmonic Complexifier provides three sliders which play different role but they all share the same CSS style:
 <p>
   <img src = "readmeImgs/LEVEL.png">
   <img src = "readmeImgs/PATTERN.png">
   <img src = "readmeImgs/SPEED.png">
 </p>
-Each slider is composed by the following elements: <b>value</b>, <b>label</b> and the type <b>range</b> input with the so-called <b>thumb</b> (the small and movable indicator that users can interact with by clicking or dragging to set a specific value on the slider):
+Each slider is composed by the following elements: <b>value</b>, <b>label</b> and the type <b>range</b> input with the so-called <b>thumb</b> (the small and movable indicator that users can interact with by clicking or dragging to set a specific value on the slider): 
 <p>
-  <img src = "readmeImgs/slider.png">
+
+</p> 
+<p>
+  <img src = "readmeImgs/Slider.png">
 </p>
 These elements are wrapped together in a container for a better positioning of each entire slider. 
 
