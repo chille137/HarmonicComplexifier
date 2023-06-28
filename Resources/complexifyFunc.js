@@ -10,16 +10,13 @@ export function complexify(lvl){
     showDegrees(tonic);
     if(!tonic){
         newChords=updateValues();
-        // showSequence(seq, "");
         showChords(newChords);
         return newChords;
     }
     let degs = retDegrees(tonic,updateValues());
-    //seq = seqFinder(degs);
     seq = seqFinder(degs);
     if(!seq) {
         newChords = updateValues()
-        // showSequence(seq, "");
         showChords(newChords);
         return newChords;
     }
@@ -28,8 +25,7 @@ export function complexify(lvl){
     // showSequence(seq);
 
     if(lvl) {
-        //newChords = triadsToQuadriads(tonic, seq);
-        newChords = newTriadsToQuadriads(tonic,seq);
+        newChords = triadsToQuadriads(tonic,seq);
         lvl-=1;
     }
     if(lvl) {
@@ -52,48 +48,7 @@ export function complexify(lvl){
 
 }
 
-/*function triadsToQuadriads(tonic,seq){
-    let chords = updateValues();
-    let newChords = updateValues();
-    let start = 0;
-    let finish = chords.length;
-    let degs = retDegrees(tonic,chords)
-
-    if (degs[0]!=seq[0]) {
-        degs = degs.slice(1, degs.length);
-        degs = [degrees[0]].concat(degs)
-        newChords = newChords.slice(1, newChords.length)
-        newChords = [scaleBuilder(tonic)[0]].concat(newChords)
-        newChords[0].duration=4
-    }
-    else {
-        if (seq.length == 3)
-            seq = [degrees[0]].concat(seq)
-        if (degs[degs.length - 1] != seq[seq.length - 1] || degs[degs.length - 1] == degs[degs.length - 2]) {
-            degs = degs.slice(0, degs.length - 1);
-            degs = [degrees[0]].concat(degs)
-            newChords = newChords.slice(0, newChords.length - 1)
-            newChords = [scaleBuilder(tonic)[0]].concat(newChords)
-            newChords[0].duration = 4
-        }
-    }
-
-
-    let quadriads = modes[0].quadriads;
-    let degsInt = [];
-
-    for (let i = 0; i < degs.length; i++)
-        degsInt[i]=romToInt(degs[i])
-    for (let i = start; i < finish; i++)
-        if (triads.includes(newChords[i].type))
-            if(start==0)
-                newChords[i].type=quadriads[degsInt[i]];
-            else
-                newChords[i].type=quadriads[degsInt[i-1]];
-    return newChords;
-}*/
-
-function newTriadsToQuadriads(tonic,seq){
+function triadsToQuadriads(tonic,seq){
     let scale = scaleBuilder(tonic)
     let newChords = [];
 
@@ -116,7 +71,6 @@ function relativeMinor(tonic,chords,seq){
         return chords
     let minor7 = scaleBuilder(tonic)[11]
     minor7.duration=2;
-    //let newChords =  [...chords];
     let newChords = JSON.parse(JSON.stringify(chords));
     newChords.splice(1, 0, minor7)
     newChords[0].duration=2;
